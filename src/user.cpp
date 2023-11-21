@@ -1,4 +1,4 @@
-#include "user.hpp"
+#include "../include/user.hpp"
 
 std::string emailDomain[9] =
     {"@ufmg", "@dcc", "@gmail","@hotmail", "@yahoo", "@outlook", "@iCloud", "@mac", "@me"};

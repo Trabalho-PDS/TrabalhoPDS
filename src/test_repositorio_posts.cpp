@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../include/core/repositorio_posts.hpp"
+#include "../include/repositorio_posts.hpp"
 #include "doctest.hpp"
 
 TEST_CASE("Testando a adição de posts") {

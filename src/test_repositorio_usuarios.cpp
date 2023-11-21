@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../include/core/repositorio_usuarios.hpp"
+#include "../include/repositorio_usuarios.hpp"
 #include "doctest.hpp"
 
 TEST_CASE("Testando o cadastro de usuários e o login") {

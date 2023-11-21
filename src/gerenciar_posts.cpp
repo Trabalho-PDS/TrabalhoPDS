@@ -1,5 +1,5 @@
-#include "../../include/core/gerenciar_posts.hpp"
-#include "../../include/core/repositorio_posts.hpp"
+#include "../include/gerenciar_posts.hpp"
+#include "../include/repositorio_posts.hpp"
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
