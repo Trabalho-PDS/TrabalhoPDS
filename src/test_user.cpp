@@ -13,6 +13,27 @@ TEST_CASE("Is it an email?") {
     }
 }
 
+TEST_CASE("Is it a password?") {
+    User user;
+
+    SUBCASE("Testing a void password"){
+        CHECK_FALSE(user.isPassword(""));
+    }
+    SUBCASE("Testing an invalid password (not enough numbers)"){
+        CHECK_FALSE(user.isPassword("senhainvalida"));
+    }
+    SUBCASE("Testing an invalid password (not enough letters)"){
+        CHECK_FALSE(user.isPassword("s2987334"));
+    }
+    SUBCASE("Testing a too short password"){
+        CHECK_FALSE(user.isPassword("soisso"));
+    }
+    SUBCASE("Finally testing a valid password"){
+        CHECK(user.isPassword("senha123valida"));
+    }
+    
+}
+
 TEST_CASE("Change of email") {
     User user;
 

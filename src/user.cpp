@@ -11,6 +11,33 @@ bool User::isEmail(std::string email){
     return false;
 };
 
+
+bool User::isPassword(std::string password){
+    if(password == ""){
+        std::cout << "A senha não pode ser vazia" << std::endl;
+        return false;
+    }
+    if(password.size() < 8) {
+        std::cout << "Sua senha deve conter pelo menos 8 caracteres" << std::endl;
+        return false;
+    }
+    int digits = 0, alphas = 0;
+    for(int it = 0; it < password.size(); ++it){
+            if(isdigit(password[it])) digits++;
+            if(isalpha(password[it])) alphas++;
+    }
+    if(digits < 2){
+        std::cout << "Sua senha deve conter pelo menos 2 dígitos" << std::endl;
+        return false;
+    }
+    if(alphas < 2){
+        std::cout << "Sua senha deve conter pelo menos 2 letras" << std::endl;
+        return false;
+    }
+    return true;
+};
+
+
 void User::changeEmail(const std::string& newEmail){
     _email = newEmail;
 }
