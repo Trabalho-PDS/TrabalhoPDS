@@ -1,4 +1,4 @@
-#include "../../../include/core/repositorio_usuarios.hpp"
+#include "../include/repositorio_usuarios.hpp"
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
