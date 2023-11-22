@@ -7,7 +7,7 @@ int main (){
     
     std::cin >> input_email;
 
-    User user;
+    User user(input_name, input_surname);
     user.changeEmail(input_email);
 
     while(!user.isEmail(input_email)) {

@@ -1,5 +1,16 @@
 #include "../include/user.hpp"
 
+// Constructor to inicialize the private name
+User::User(std::string& firstName, std::string& secondName, std::string &email, std::string &password){
+    User::_mergeName(firstName, secondName);
+    _email = email;
+    _password = password;
+}
+
+User::User(){}
+
+
+// Verifying the email and the password
 std::string emailDomain[9] =
     {"@ufmg", "@dcc", "@gmail","@hotmail", "@yahoo", "@outlook", "@iCloud", "@mac", "@me"};
 
@@ -38,10 +49,20 @@ bool User::isPassword(std::string password){
 };
 
 
+
+// Change data
 void User::changeEmail(const std::string& newEmail){
-    _email = newEmail;
+    if (isEmail(newEmail)) _email = newEmail;
+    else std::cout << "Email inválido" << std::endl;
 }
 
+void User::changePassword(const std::string& newPassword){
+    if (isPassword(newPassword)) _password = newPassword;
+}
+
+
+
+// Functions to see some data
 std::string User::seeEmail() const {
     return _email;
 }
@@ -50,7 +71,13 @@ std::string User::seeName() const {
     return _name;
 }
 
-void User::mergeName
+std::string User::seePassword() const {
+    return _password;
+}
+
+
+// Treat and merge name and surname
+void User::_mergeName
 (std::string& firstName, std::string& secondName){
     if (!firstName.empty()) {
         firstName[0] = std::toupper(firstName[0]);

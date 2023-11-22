@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../include/doctest.hpp"
+#include "doctest.hpp"
 #include "../include/user.hpp"
 
 TEST_CASE("Is it an email?") {
@@ -44,26 +44,35 @@ TEST_CASE("Change of email") {
     CHECK_EQ(user.seeEmail(), "user@yahoo.com");
 }
 
-TEST_CASE("Testing the name"){
-    User user;
+TEST_CASE("Change of password") {
+    std::string firstName = "Any";
+    std::string secondName = "Name";
+    std::string password = "senhavalida123";
+    std::string email = "emailvalido@gmail.com";
+    User user(firstName, secondName, email, password);;
 
+    SUBCASE("Valid new password"){
+        user.changePassword("newPassword123");
+        CHECK_EQ(user.seePassword(), "newPassword123");
+    }
+
+    SUBCASE("Invalid new password"){
+        user.changePassword("pass");
+        CHECK_EQ(user.seePassword(), "senhavalida123");
+    }
+}
+
+TEST_CASE("Testing the name"){
     SUBCASE("Valid input") {
         std::string firstName = "aNy";
         std::string secondName = "NamE";
+        std::string password = "senhavalida123";
+        std::string email = "emailvalido@gmail.com";
 
-        user.mergeName(firstName, secondName);
+        User user(firstName, secondName, email, password);
 
         CHECK(user.seeName() == "Any Name");
     }
 
-        // Assuming an empty string is expected for empty input - need to be implemented
-
-        //SUBCASE("Empty input") {
-        //    std::string firstName = "";
-        //    std::string secondName = "";
-        //
-        //    user.mergeName(firstName, secondName);
-        //
-        //    CHECK(user.seeName() == "");
-        //}
+    // See how to check if the name is empty
 }
