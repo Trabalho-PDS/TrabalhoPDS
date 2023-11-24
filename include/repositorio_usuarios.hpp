@@ -20,5 +20,7 @@ public:
   std::string dados_usuario(const std::string idUsuario);
 private: 
   std::string _currentPath = std::filesystem::current_path().string();
-  std::string _filePath = _currentPath + "/src/storage/DB/usuario.txt";
+  std::string _authkeysPath = _currentPath.find("tests") ? _currentPath + "../../storage/authkeys.txt" : _currentPath + "../storage/authkeys.txt";
+  std::string _filePath = _currentPath.find("tests") ? _currentPath + "../../storage/usuario.txt" : _currentPath + "../storage/usuario.txt";
+
 };
