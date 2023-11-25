@@ -23,42 +23,88 @@
 			background-color: black;
 		}
 		#search{
+			display: flex;
 			margin-left: auto;
 			margin-right: auto;
 			margin-top: auto;
 			width: 97%;
-			height: 8%;
+			height: 6%;
 			border-radius: 25px;
 			background-color: #565656;
 		}
-		#right{
+		#form_search{
+			height: 100%;
+			width: 100%;
+		}
+		#input_search{
+			border-radius: 25px;
+			height: 100%;
+			width: 90%;
+		}
+		#enter{
+			border-radius: 25px;
+			height: 100%;
+			width: 9%;
+		}
+		#middle{
 			margin-right: auto;
 			margin-left: auto;
 			margin-top: 2%;
 			margin-bottom: auto;
 			border-radius: 15px;
 			background-color: #565656;
-			height: 80%;
+			height: 84%;
 			width: 76%;
 		}
-		#middle{
+		#right{
 			margin-right: auto;
 			margin-top: 2%;
 			margin-bottom: auto;
 			border-radius: 15px;
 			background-color: #565656;
-			height: 80%;
+			height: 84%;
 			width: 20%;
+			display: block;
+		}
+		#data_user{
+			border-radius: 15px;
+			height: 25%;
+			width: 100%;
+			background-color: white;
+		}
+		#filters{
+			border-radius: 15px;
+			margin-top: 5%;
+			height: 60%;
+			width: 100%;
+			background-color: white;
+		}
+		#create_post_button{
+			border-radius: 25px;
+			margin-top: 5%;
+			height: 10%;
+			width: 100%;
+			background-color: white;
 		}
     </style>
 </head>
 <body id="main">
 <div id="principal">
 	<div id="search">
-	</div>
-	<div id="right">
+		<form id="form_search" action="teste.html" method="get">
+			<input id="input_search" type="text" name="input_search" placeholder="Pesquisar">
+			<input id="enter" type="submit" value="Enter">
+		</form>
 	</div>
 	<div id="middle">
+	</div>
+	<div id="right">
+		<div id="data_user">
+		</div>
+		<div id="filters">
+		</div>
+		<div id="create_post_button">
+		</div>
 	</div>
 </div>
 </body>
