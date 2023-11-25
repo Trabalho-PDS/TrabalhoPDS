@@ -1,12 +1,15 @@
 #include "../include/repositorio_usuarios.hpp"
+#include <algorithm>
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
 #include <filesystem>
 #include <fstream>
+#include <functional>
 #include <iostream>
 #include <random>
 #include <sstream>
+#include <stdexcept>
 #include <unordered_set>
 #include <vector>
 
