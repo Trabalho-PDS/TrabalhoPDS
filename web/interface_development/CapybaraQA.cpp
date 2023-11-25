@@ -62,12 +62,17 @@ int main(){
     sty_filters.width(100, "%");
     sty_filters.background_color("white");
 
+    cwi::Style sty_create_post;
+    sty_create_post.border_radius(25);
+    sty_create_post.margin(5, "%", "top");
+    sty_create_post.height(10, "%");
+    sty_create_post.width(100, "%");
+    sty_create_post.background_color("white");
+
     cwi::Style sty_create_post_button;
-    sty_create_post_button.border_radius(25);
-    sty_create_post_button.margin(5, "%", "top");
-    sty_create_post_button.height(10, "%");
+    sty_create_post_button.height(100, "%");
     sty_create_post_button.width(100, "%");
-    sty_create_post_button.background_color("white");
+    sty_create_post_button.border_radius(25);
 
     cwi::Style sty_form_search;
     sty_form_search.height(100, "%");
@@ -83,6 +88,15 @@ int main(){
     sty_enter_search.height(100, "%");
     sty_enter_search.width(9, "%");
 
+    cwi::Style sty_post_base;
+    sty_post_base.width(98, "%");
+    sty_post_base.height(20, "%");
+    sty_post_base.margin("left");
+    sty_post_base.margin("right");
+    sty_post_base.margin(1, "%", "top");
+    sty_post_base.border_radius(15);
+    sty_post_base.background_color("#90EE90");
+
     //-----------------------------------------------------------------------//
     cwi::Div principal("principal");
     cwi::Div right_div("right");
@@ -90,48 +104,62 @@ int main(){
 
     cwi::Div data_user("data_user");
     cwi::Div filters("filters");
-    cwi::Div create_post_button("create_post_button");
+    cwi::Div create_post("create_post_button");
 
     cwi::Div search("search");
     cwi::Form form_search("form_search", "teste.html", "get");
     
     cwi::Div time_line("time_line");
-    cwi::Div create_post("create_post");
+
+    cwi::Div post_base("post");
 
     //-----------------------------------------------------------------------//
     cwi::TextBox input_search("input_search", "Pesquisar");
 
+    cwi::Button button_create_post("btn_create_post", "NOVO POST +", "teste.html");
+
     //-----------------------------------------------------------------------//
-    input_search.add_style(sty_input_search);
-    form_search.add_style(sty_form_search);
-    form_search.submit_style(sty_enter_search);
     form_search.insert(&input_search);
 
-    search.child(&form_search);
+    create_post.insert(&button_create_post);
 
+    //-----------------------------------------------------------------------//
     principal.child(&search);
     principal.child(&middle_div);
     principal.child(&right_div);
 
     right_div.child(&data_user);
     right_div.child(&filters);
-    right_div.child(&create_post_button);
+    right_div.child(&create_post);
+
+    middle_div.child(&post_base);
+
+    search.child(&form_search);
+
+    //-----------------------------------------------------------------------//
+    input_search.add_style(sty_input_search);
+    form_search.add_style(sty_form_search);
+    form_search.submit_style(sty_enter_search);
 
     data_user.add_style(sty_data_users);
     filters.add_style(sty_filters);
-    create_post_button.add_style(sty_create_post_button);
+    create_post.add_style(sty_create_post);
 
     principal.add_style(sty_principal);
     right_div.add_style(sty_right_div);
     middle_div.add_style(sty_middle_div);
     search.add_style(sty_search);
 
+    post_base.add_style(sty_post_base);
+
+    button_create_post.add_style(sty_create_post_button);
+
     //-----------------------------------------------------------------------//
     cwi::Render render1("teste");
     render1.add_style(sty_body);
     render1.insert(&principal);
 
-    render1.generate_html("teste.html");
+    render1.compile();
 
     return 0;
 }
