@@ -19,7 +19,7 @@ public:
 
   std::string dados_usuario(const std::string idUsuario);
 private: 
-  std::string _currentPath = std::filesystem::current_path().string();
-std::string _authkeysPath = _currentPath + "/storage/authkeys.txt";
-  std::string _filePath = _currentPath + "/storage/usuario.txt";
+  //std::string _currentPath = std::filesystem::current_path().string();
+  std::string _authkeysPath = "../storage/authkeys.txt";
+  std::string _filePath = "../storage/usuario.txt";
 };
