@@ -13,8 +13,6 @@ public:
 
   bool autenticar_login(std::string email, std::string senha);
 
-  void editar_usuarios(std::string id_usuario, const std::string novo_email, const std::string nova_senha, const std::string tipo);
-
   std::string identidade_usuario(std::string email);
 
   std::string dados_usuario(const std::string idUsuario);
