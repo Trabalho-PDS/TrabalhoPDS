@@ -1,7 +1,37 @@
-#include "CWI/Capybara.hpp"
 
-int main(){
+#include "CWI/Capybara.hpp"
+#include <iostream>
+#include <map>
+
+int main(int argc, char **argv, char **envp){
     
+    std::string query_msg;
+    query_msg = std::getenv("QUERY_STRING");
+
+    std::string buffer_option;
+    std::string buffer_param;
+    std::map<std::string, std::string> options;
+
+    for(int i = 0; query_msg[i] != '\0'; i++){
+        if(query_msg[i] != '='){
+            buffer_option = buffer_option + query_msg[i];
+        }
+        else{
+            i++;
+            for(; query_msg[i] != '&' && query_msg[i] != '\0'; i++){
+                if(query_msg[i] == '-'){
+                    buffer_param = buffer_param + " ";
+                }else{
+                    buffer_param = buffer_param + query_msg[i];
+                }
+            }
+            options[buffer_option] = buffer_param;
+            buffer_option = "";
+            buffer_param = "";
+        }
+    }
+
+    //-----------------------------------------------------------------------//
     cwi::Style sty_body;
     sty_body.padding(0);
     sty_body.margin(0);
@@ -107,7 +137,7 @@ int main(){
     cwi::Div create_post("create_post_button");
 
     cwi::Div search("search");
-    cwi::Form form_search("form_search", "teste.html", "get");
+    cwi::Form form_search("form_search", "teste.out", "get");
     
     cwi::Div time_line("time_line");
 
@@ -116,12 +146,12 @@ int main(){
     //-----------------------------------------------------------------------//
     cwi::TextBox input_search("input_search", "Pesquisar");
 
-    cwi::Button button_create_post("btn_create_post", "NOVO POST +", "teste.html");
+    cwi::Form button_create_post("btn_create_post", "teste.out?create=create_post", "post");
 
     //-----------------------------------------------------------------------//
     form_search.insert(&input_search);
 
-    create_post.insert(&button_create_post);
+    create_post.child(&button_create_post);
 
     //-----------------------------------------------------------------------//
     principal.child(&search);
@@ -132,7 +162,9 @@ int main(){
     right_div.child(&filters);
     right_div.child(&create_post);
 
-    middle_div.child(&post_base);
+    if(options["create"] == "create_post"){
+        middle_div.child(&post_base);
+    }
 
     search.child(&form_search);
 
@@ -152,6 +184,8 @@ int main(){
 
     post_base.add_style(sty_post_base);
 
+    button_create_post.submit("create", "NOVO POST +");
+    button_create_post.submit_style(sty_create_post_button);
     button_create_post.add_style(sty_create_post_button);
 
     //-----------------------------------------------------------------------//
