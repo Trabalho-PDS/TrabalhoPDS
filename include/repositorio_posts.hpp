@@ -4,21 +4,29 @@
 #include <sstream>
 #include <filesystem>
 #include <fstream>
-#include <map>
+#include <vector>
 #include <iostream>
 #include <unordered_set>
 
 class RepositorioPosts {
 public:
-  void criar_post(std::string const titulo, std::string const materia, std::string const descricao, std::string const nome_usuario, std::string const id_post, std::string const id_usuario);
+  void criar_post(std::string const titulo,
+                  std::string const disciplina,
+                  std::string const conteudo,
+                  std::string const post_id,
+                  std::string const user_id);
 
   void remover_post(std::string const id_post);
 
-  void editar_post(std::string const id_post, std::map<std::string, std::string> novas_info);
+  void editar_post(std::string const& titulo, 
+                  std::string const& disciplina, 
+                  std::string const& conteudo,                   
+                  std::string const& post_id,
+                  std::string const& user_id);
 
-  void buscar_posts(std::unordered_set<std::string> filtros);
+  std::vector<std::string> buscar_posts(std::string filter);
 
 private: 
-  std::string _currentPath = std::filesystem::current_path().string();
-  std::string _filePath = _currentPath + "/src/storage/DB/post.txt";
+  //std::string _currentPath = std::filesystem::current_path().string();
+  std::string _filePath = "../storage/post.txt";
 };
