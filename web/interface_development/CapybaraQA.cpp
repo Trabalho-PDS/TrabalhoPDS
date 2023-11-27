@@ -127,6 +127,58 @@ int main(int argc, char **argv, char **envp){
     sty_post_base.border_radius(15);
     sty_post_base.background_color("#90EE90");
 
+    cwi::Style sty_form_new_post;
+    sty_form_new_post.display("block");
+    sty_form_new_post.width(98, "%");
+    sty_form_new_post.height(70, "%");
+    sty_form_new_post.margin("left");
+    sty_form_new_post.margin("right");
+
+    cwi::Style sty_input_title_new_post;
+    sty_input_title_new_post.display("inline");
+    sty_input_title_new_post.width(100, "%");
+    sty_input_title_new_post.height(10, "%");
+    sty_input_title_new_post.border_radius(25);
+
+    cwi::Style sty_input_body_new_post;
+    sty_input_body_new_post.display("inline");
+    sty_input_body_new_post.width(100, "%");
+    sty_input_body_new_post.height(80, "%");
+    sty_input_body_new_post.border_radius(15);
+
+    cwi::Style sty_submit_new_post;
+    sty_submit_new_post.width(20, "%");
+    sty_submit_new_post.height(10, "%");
+    sty_submit_new_post.margin(80, "%", "left");
+    sty_submit_new_post.margin(2, "%", "top");
+    sty_submit_new_post.border_radius(25);
+
+    //-----------------------------------------------------------------------//
+    cwi::Style sty_part_login;
+    sty_part_login.width(50, "%");
+    sty_part_login.height(100, "%");
+    sty_part_login.background_color("#0b0b64");
+    sty_part_login.border_radius(15);
+
+    cwi::Style sty_part_info;
+    sty_part_info.width(50, "%");
+    sty_part_info.height(100, "%");
+    sty_part_info.background_color("#11119c");
+    sty_part_info.border_radius(15);
+
+    cwi::Style sty_form_login;
+    sty_form_login.width(60, "%");
+    sty_form_login.height(70, "%");
+    sty_form_login.margin("left");
+    sty_form_login.margin("right");
+    sty_form_login.margin(30, "%", "top");
+
+    cwi::Style sty_inputs_login;
+    sty_inputs_login.margin(3);
+    sty_inputs_login.width(100, "%");
+    sty_inputs_login.height(15, "%");
+    sty_inputs_login.border_radius(15);
+
     //-----------------------------------------------------------------------//
     cwi::Div principal("principal");
     cwi::Div right_div("right");
@@ -137,32 +189,75 @@ int main(int argc, char **argv, char **envp){
     cwi::Div create_post("create_post_button");
 
     cwi::Div search("search");
-    cwi::Form form_search("form_search", "teste.out", "get");
+    cwi::Form form_search("form_search", "teste.out?is_login=1", "post");
     
     cwi::Div time_line("time_line");
 
     cwi::Div post_base("post");
+    
+    //-----------------------------------------------------------------------//
+    cwi::Div part_login("part_login");
+    cwi::Div part_info("part_info");
+
+    cwi::Form form_login("form_login", "teste.out", "get");
+    cwi::TextBox input_email("input_email", "Email");
+    cwi::TextBox input_passaword("input_pass", "Senha");
 
     //-----------------------------------------------------------------------//
     cwi::TextBox input_search("input_search", "Pesquisar");
 
-    cwi::Form button_create_post("btn_create_post", "teste.out?create=create_post", "post");
+    cwi::Form button_create_post("btn_create_post", "teste.out?create=create_post&is_login=1", "post");
+
+    cwi::Text text_create_new_post("h2", "txt_new_post", "NOVO POST!");
+    cwi::TextBox input_title_new_post("input_title_new_post", "Titulo");
+    cwi::TextBox input_body_new_post("input_body_new_post", "Questão");
+    cwi::Form form_new_post("form_new_post", "teste.out", "get");
+
+    //-----------------------------------------------------------------------//
+    part_login.add_style(sty_part_login);
+    part_info.add_style(sty_part_info);
+    form_login.add_style(sty_form_login);
+    form_login.submit_style(sty_inputs_login);
+    input_email.add_style(sty_inputs_login);
+    input_passaword.add_style(sty_inputs_login);
 
     //-----------------------------------------------------------------------//
     form_search.insert(&input_search);
 
     create_post.child(&button_create_post);
 
+    form_new_post.submit("submit_new_post", "PUBLICAR");
+    form_new_post.insert(&input_body_new_post);
+    form_new_post.insert(&input_title_new_post);
+
+    form_login.insert(&input_passaword);
+    form_login.insert(&input_email);
+    form_login.submit("submit_login", "ENTRAR");
+
     //-----------------------------------------------------------------------//
-    principal.child(&search);
-    principal.child(&middle_div);
-    principal.child(&right_div);
+    if(options["input_email"] == "lucas" && options["input_pass"] == "1234"){
+        options["is_login"] = "1";
+    }
+
+    if(options["is_login"] == "1"){
+        principal.child(&search);
+        principal.child(&middle_div);
+        principal.child(&right_div);
+    }else{
+        principal.child(&part_info);
+        principal.child(&part_login);
+    }
+
+    part_login.child(&form_login);
 
     right_div.child(&data_user);
     right_div.child(&filters);
     right_div.child(&create_post);
 
     if(options["create"] == "create_post"){
+        middle_div.insert(&text_create_new_post);
+        middle_div.child(&form_new_post);
+    }else{
         middle_div.child(&post_base);
     }
 
@@ -187,6 +282,11 @@ int main(int argc, char **argv, char **envp){
     button_create_post.submit("create", "NOVO POST +");
     button_create_post.submit_style(sty_create_post_button);
     button_create_post.add_style(sty_create_post_button);
+
+    form_new_post.add_style(sty_form_new_post);
+    form_new_post.submit_style(sty_submit_new_post);
+    input_body_new_post.add_style(sty_input_body_new_post);
+    input_title_new_post.add_style(sty_input_title_new_post);
 
     //-----------------------------------------------------------------------//
     cwi::Render render1("teste");
