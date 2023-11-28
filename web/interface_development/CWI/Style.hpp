@@ -13,10 +13,10 @@ class Style{
         void font_size(int size, std::string unit = "px");
         void font_weight(int size, std::string unit = "px");
 
-        void padding(int size, std::string unit = "px");
+        void padding(int size, std::string unit = "px", std::string dir = "");
         
         void margin(int size = 0, std::string unit = "px", std::string dir = "");
-	void margin(std::string dir = "", std::string type = "auto");
+	    void margin(std::string dir = "", std::string type = "auto");
 	
         void border(int size, std::string type, std::string color);
         void border_radius(int radius);

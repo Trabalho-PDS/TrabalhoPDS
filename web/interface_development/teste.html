@@ -3,125 +3,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>teste</title>
+    <title>login</title>
     <style>
 		#main{
+			height: 100%;
+			width: 100%;
 			padding: 0px;
 			margin: 0px;
-		}
-		#principal{
-			display: flex;
+			display: inline-flex;
 			flex: 1;
-			flex-wrap: wrap;
-			margin-right: 7%;
-			margin-left: 7%;
-			margin-top: 5%;
-			margin-bottom: 2%;
-			height: 110%;
-			width: auto;
-			border-radius: 15px;
-			background-color: black;
 		}
-		#search{
-			display: flex;
+		#part_info{
+			margin: 10px;
+			width: 50%;
+			height: 100%;
+			background-color: #11119c;
+			border-radius: 15px;
+		}
+		#part_login{
+			margin: 10px;
+			width: 50%;
+			height: 100%;
+			background-color: #0b0b64;
+			border-radius: 15px;
+		}
+		#form_login{
+			width: 60%;
+			height: 70%;
 			margin-left: auto;
 			margin-right: auto;
-			margin-top: auto;
-			width: 97%;
-			height: 6%;
-			border-radius: 25px;
-			background-color: #565656;
+			margin-top: 30%;
 		}
-		#form_search{
-			height: 100%;
+		#input_email{
+			margin: 3px;
 			width: 100%;
-		}
-		#input_search{
-			border-radius: 25px;
-			height: 100%;
-			width: 90%;
-		}
-		#enter{
-			border-radius: 25px;
-			height: 100%;
-			width: 9%;
-		}
-		#middle{
-			margin-right: auto;
-			margin-left: auto;
-			margin-top: 2%;
-			margin-bottom: auto;
+			height: 15%;
 			border-radius: 15px;
-			background-color: #565656;
-			height: 84%;
-			width: 76%;
 		}
-		#post{
-			width: 98%;
-			height: 20%;
-			margin-left: auto;
-			margin-right: auto;
-			margin-top: 1%;
-			border-radius: 15px;
-			background-color: #90EE90;
-		}
-		#right{
-			margin-right: auto;
-			margin-top: 2%;
-			margin-bottom: auto;
-			border-radius: 15px;
-			background-color: #565656;
-			height: 84%;
-			width: 20%;
-			display: block;
-		}
-		#data_user{
-			border-radius: 15px;
-			height: 25%;
+		#input_pass{
+			margin: 3px;
 			width: 100%;
-			background-color: white;
-		}
-		#filters{
+			height: 15%;
 			border-radius: 15px;
-			margin-top: 5%;
-			height: 60%;
-			width: 100%;
-			background-color: white;
 		}
-		#create_post_button{
-			border-radius: 25px;
-			margin-top: 5%;
-			height: 10%;
+		#submit_login{
+			margin: 3px;
 			width: 100%;
-			background-color: white;
-		}
-		#btn_create_post{
-			height: 100%;
-			width: 100%;
-			border-radius: 25px;
+			height: 15%;
+			border-radius: 15px;
 		}
     </style>
 </head>
 <body id="main">
-<div id="principal">
-	<div id="search">
-		<form id="form_search" action="teste.html" method="get">
-			<input id="input_search" type="text" name="input_search" placeholder="Pesquisar">
-			<input id="enter" type="submit" value="Enter">
-		</form>
-	</div>
-	<div id="middle">
-		<div id="post">
-		</div>
-	</div>
-	<div id="right">
-		<div id="data_user">
-		</div>
-		<div id="filters">
-		</div>
-		<div id="create_post_button">
-			<button id="btn_create_post" onclick="teste.html">NOVO POST +</button>
-		</div>
-	</div>
+<div id="part_info">
+</div>
+<div id="part_login">
+	<form id="form_login" action="teste.out" method="get">
+		<input id="input_email" type="text" name="input_email" placeholder="Email">
+		<input id="input_pass" type="text" name="input_pass" placeholder="Senha">
+		<input id="submit_login" type="submit" value="ENTRAR">
+	</form>
 </div>
 </body>
