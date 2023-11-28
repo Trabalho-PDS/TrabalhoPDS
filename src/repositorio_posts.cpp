@@ -8,106 +8,164 @@
 #include <map>
 #include <random>
 #include <sstream>
+#include <stack>
 #include <unordered_set>
 #include <vector>
 
-template <typename T> T openFilePosts(const std::string &filePath, short mode) {
-  T file;
-  switch (mode) {
-  case 1:
-    file.open(filePath, std::ios::app);
-    break;
-  case 2:
-    file.open(filePath);
-    break;
-  }
-
-  return file;
-}
-
-std::vector<std::string> splitString(const std::string &input, char delimiter) {
-  std::vector<std::string> parts;
-  std::stringstream ss(input);
-  std::string part;
-
-  while (std::getline(ss, part, delimiter)) {
-    parts.push_back(part);
-  }
-
-  return parts;
-}
-
 void RepositorioPosts::criar_post(std::string const titulo,
-                                  std::string const materia,
-                                  std::string const descricao,
-                                  std::string const nome_usuario,
-                                  std::string const id_post,
-                                  std::string const id_usuario) {
+                                  std::string const disciplina,
+                                  std::string const conteudo,
+                                  std::string const post_id,
+                                  std::string const user_id) {
 
-  std::ofstream FilePosts =
-      openFilePosts<std::ofstream>(RepositorioPosts::_filePath, 1);
+  std::ofstream FilePosts;
 
-  if (!FilePosts.is_open()) {
-    std::cerr << "Error opening file: " << RepositorioPosts::_filePath << '\n';
-    return; // Exit the function if the file couldn't be opened
+  try {
+    FilePosts.open(RepositorioPosts::_filePath, std::ios::app);
+
+    FilePosts << post_id + "$&n&$~~" + titulo + "$&n&$~~" + disciplina +
+                     "$&n&$~~" + conteudo + "$&n&$~~" + user_id + "\n";
+    FilePosts.close();
+  } catch (const std::ofstream::failure &e) {
+    std::cerr << e.what();
+    return;
   }
-
-  FilePosts << id_post + " " + titulo + " " + materia + " " + descricao + " " +
-                   nome_usuario + " " + id_post + " " + id_usuario + "\n";
-
-  if (FilePosts.fail()) {
-    std::cerr << "Error writing to file: " << _filePath << '\n';
-  }
-
-  FilePosts.close();
 }
 
-void RepositorioPosts::remover_post(std::string id_post) {
+void RepositorioPosts::remover_post(std::string post_id) {
   // armazena o conteúdo do arquivo na memória
-  std::ifstream inputFilePosts =
-      openFilePosts<std::ifstream>(RepositorioPosts::_filePath, 2);
+  std::ifstream inputFilePosts;
+  bool exists = false;
+  std::vector<std::string> lines;
 
-  if (!inputFilePosts.is_open()) {
-    std::cerr << "Erro ao abrir para a ler: " << _filePath << '\n';
+  try {
+    inputFilePosts.open(RepositorioPosts::_filePath);
+    std::string line = "";
+    while (std::getline(inputFilePosts, line)) {
+      lines.push_back(line);
+      if (line.find(post_id) != std::string::npos) {
+        exists = true;
+      }
+    }
+    inputFilePosts.close();
+  } catch (const std::ifstream::failure &e) {
+    std::cerr << e.what();
     return;
   }
 
-  std::vector<std::string> lines;
-  std::string line;
-  while (std::getline(inputFilePosts, line)) {
-    lines.push_back(line);
+  if (!exists) { // não continuar se o post não existir
+    throw std::invalid_argument("ID inválido");
+    return;
   }
-
-  inputFilePosts.close();
 
   // sobrescrever o arquivo original com o conteúdo atualizado
-  std::ofstream outputFilePosts = openFilePosts<std::ofstream>(
-      RepositorioPosts::_filePath, 2); // para sobrescrever, precisa do 2
+  std::ofstream outputFilePosts;
 
-  if (!outputFilePosts.is_open()) {
-    std::cerr << "Erro ao abrir o arquivo para escrever\n";
+  try {
+    outputFilePosts.open(RepositorioPosts::_filePath);
+    // escreve as linhas de volta, excluindo a que tem o ID
+    for (const auto &currentLine : lines) {
+      // o ID é a primeira parte da linha
+      if (currentLine.find(post_id) == std::string::npos) {
+        outputFilePosts << currentLine << '\n';
+      }
+    }
+    outputFilePosts.close();
+  } catch (const std::ifstream::failure &e) {
+    std::cerr << e.what();
+    return;
+  }
+}
+
+void RepositorioPosts::editar_post(std::string const &titulo,
+                                   std::string const &disciplina,
+                                   std::string const &conteudo,
+                                   std::string const &post_id,
+                                   std::string const &user_id) {
+  std::ifstream inputFilePosts;
+  std::vector<std::string> lines;
+  bool exists = false;
+
+  try {
+    inputFilePosts.open(RepositorioPosts::_filePath);
+    std::string line = "";
+    while (std::getline(inputFilePosts, line)) {
+      lines.push_back(line);
+      if (line.find(post_id) != std::string::npos) {
+        exists = true;
+      }
+    }
+    inputFilePosts.close();
+  } catch (const std::ifstream::failure &e) {
+    std::cerr << e.what();
     return;
   }
 
-  // escreve as linhas de volta, excluindo a que tem o ID
-  for (const auto &currentLine : lines) {
-    // o ID é a primeira parte da linha
-    if (currentLine.find(id_post) == std::string::npos) {
-      outputFilePosts << currentLine << '\n';
-    }
+  if (!exists) { // não continuar se o post não existir
+    throw std::invalid_argument("edit - ID inválido " + post_id);
+    return;
   }
 
-  outputFilePosts.close();
+  // hora de atualizar o arquivo txt:
+  std::ofstream outputFilePosts;
+
+  try {
+    outputFilePosts.open(RepositorioPosts::_filePath,
+                         std::ios::out | std::ios::trunc);
+    // modificando os dados da que tem o ID:
+    for (const auto &currentLine : lines) {
+      // o ID é a primeira parte da linha
+      if (currentLine.find(post_id) == std::string::npos) {
+        outputFilePosts << currentLine << '\n';
+      } else {
+        outputFilePosts << post_id + "$&n&$~~" + titulo + "$&n&$~~" +
+                               disciplina + "$&n&$~~" + conteudo + "$&n&$~~" +
+                               user_id + "\n";
+      }
+    }
+    outputFilePosts.close();
+  } catch (const std::ifstream::failure &e) {
+    std::cerr << e.what();
+    return;
+  }
 }
 
-void RepositorioPosts::editar_post(
-    std::string const id_post, std::map<std::string, std::string> novas_info) {
-  remover_post(id_post);
-  criar_post(novas_info.find("titulo")->second,
-             novas_info.find("materia")->second,
-             novas_info.find("descricao")->second,
-             novas_info.find("nome_usuario")->second, id_post,
-             novas_info.find("id_usuario")->second);
-}
+std::vector<std::string> RepositorioPosts::buscar_posts(std::string filter) {
+  // vamos usar um stack para armazenar as informações do arquivo e liberá-lo em
+  // um vector.
+  std::vector<std::string> posts_filtrados;
 
-void RepositorioPosts::buscar_posts(std::unordered_set<std::string> filtros) {}
+  std::stack<std::string> stack;
+
+  std::ifstream inputFilePosts;
+  std::vector<std::string> lines;
+
+  try {
+    inputFilePosts.open(RepositorioPosts::_filePath);
+    std::string line = "";
+    while (std::getline(inputFilePosts, line)) {
+      if (line.find(filter) != std::string::npos) {
+        stack.push(line);
+      }
+    }
+    inputFilePosts.close();
+  } catch (const std::ifstream::failure &e) {
+    std::cerr << e.what();
+    return posts_filtrados;
+  }
+
+  if (stack.empty()) { // não continuar se o filtro não estiver em nenhum post
+    throw std::invalid_argument("filtro inválido");
+    return posts_filtrados;
+  }
+
+  size_t stack_size = stack.size();
+  for (size_t i = 0; i < stack_size;
+       i++) { // dessa forma, garantimos que os mais recentes sempre estarão no
+              // topo
+    posts_filtrados.push_back(stack.top());
+    stack.pop();
+  }
+
+  return posts_filtrados;
+}
