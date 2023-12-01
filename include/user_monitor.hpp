@@ -10,12 +10,14 @@ class Monitor : public User, public GerenciarPosts {
     public:
         Monitor();
 
-        void calculateStars (int newGrade);
+        void choseFields(std::string field);
+        void calculateStars(int newEvaluation);
 
-        double seeStars ();
+        void seeFields();
+        double seeStars();
 
     private:
-        std::vector <std::string> _subjectsArea;
+        std::vector <std::string> _fields;
         int _numberOfEvaluations;
         double _starRange;
 };
