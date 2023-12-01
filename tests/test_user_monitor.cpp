@@ -2,7 +2,7 @@
 #include "doctest.hpp"
 #include "../include/user_monitor.hpp"
 
-TEST_CASE("Seeing star range"){
+TEST_CASE("Showing star range"){
     Monitor monitor;
 
     SUBCASE("Inicial value"){
@@ -18,4 +18,10 @@ TEST_CASE("Seeing star range"){
         monitor.calculateStars(5);
         CHECK_EQ(monitor.seeStars(), 4);
     }
+
+    monitor.choseFields("matematica");
+    monitor.choseFields("pds");
+    monitor.choseFields("discreta");
+
+    monitor.seeFields();
 }
