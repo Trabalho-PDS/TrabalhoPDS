@@ -28,6 +28,6 @@ e também para que a universidade à qual estão inseridos possa gratificá-los 
 
 ## Autores
 Layane Garcia  
+Lucas Bahia  
 Lucas Rodrigues  
-Lucas  
 Sarah Azevedo
