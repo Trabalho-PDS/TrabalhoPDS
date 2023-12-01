@@ -6,9 +6,22 @@ Monitor::Monitor(){
     _starRange = 0;
 };
 
-void Monitor::calculateStars (int newGrade){
+
+void Monitor::calculateStars (int newEvaluation){
     _numberOfEvaluations++;
-    _starRange = (_starRange + (double)(newGrade))/_numberOfEvaluations;
+    _starRange = (_starRange + (double)(newEvaluation))/_numberOfEvaluations;
+}
+
+
+void Monitor::choseFields(std::string field){
+    _fields.push_back(field);
+}
+
+
+void Monitor::seeFields(){
+    for (auto it : _fields){
+        std::cout << it << std::endl;
+    }
 }
 
 
