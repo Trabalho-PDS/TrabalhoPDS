@@ -24,7 +24,7 @@ std::vector<std::string> split_string_by_substring(std::string inputString) {
   return my_vector;
 }
 
-void GerenciarRespostas::answer_post(const Resposta &new_resposta) {
+void GerenciarRespostas::answer_post(const Resposta &new_resposta) { // vai conferir se o usuário existe e chamar a função do repositorio respostas
   // conferir se o usuario existe antes de mandar criar
   RepositorioUsuarios repositorio_users;
   if (repositorio_users.dados_usuario(new_resposta.getIdMonitor()) ==
@@ -38,7 +38,7 @@ void GerenciarRespostas::answer_post(const Resposta &new_resposta) {
   std::string id_monitor = new_resposta.getIdMonitor();
   std::string content = new_resposta.getContent();
   std::string answer_id = new_resposta.getAnswerId();
-  RepositorioRespostas repositorio_posts;
+  RepositorioRespostas repositorio_posts;//chamei de repositorio_posts para combinar com o nome do método
   /*
     std::string const &post_id,
     std::string const &id_monitor,
@@ -55,7 +55,7 @@ void GerenciarRespostas::delete_answer(std::string const &id_resposta) {
 }
 
 std::vector<Resposta>
-GerenciarRespostas::respostas_do_post(std::string const &post_id) {
+GerenciarRespostas::respostas_do_post(std::string const &post_id) { // retorna todas as respostas que aquele post tem
   RepositorioRespostas repositorio;
   std::vector<std::string> my_vec = repositorio.answers_by_post_id(post_id);
   std::vector<Resposta> answers;

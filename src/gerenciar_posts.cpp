@@ -9,7 +9,7 @@
 #include <fstream>
 #include <stdexcept>
 
-void GerenciarPosts::new_post(const Post &new_post) {
+void GerenciarPosts::new_post(const Post &new_post) {/*recebe um objeto do tipo post, verifica se o usuário existe ou não e chama a função criar_post do repositório*/
   // conferir se o usuario existe antes de mandar criar
   RepositorioUsuarios repositorio_users;
   if (repositorio_users.dados_usuario(new_post.getUserId()) == "ID inválido") {
@@ -29,13 +29,13 @@ void GerenciarPosts::new_post(const Post &new_post) {
   repositorio_posts.criar_post(titulo, disciplina, conteudo, post_id, user_id);
 }
 
-void GerenciarPosts::delete_post(std::string const id_post) {
+void GerenciarPosts::delete_post(std::string const id_post) { /*vai chamar a função remover_post do repositorio dos posts*/
   RepositorioPosts repositorio;
   repositorio.remover_post(
       id_post); // o próprio remover_post já verifica se o post existe ou não.
 }
 
-void GerenciarPosts::edit_post(const Post &edited_post) {
+void GerenciarPosts::edit_post(const Post &edited_post) {/*verifica se o usuário existe ou não e chama a função de editar no repositorio posts*/
   RepositorioUsuarios repositorio_users;
   if (repositorio_users.dados_usuario(edited_post.getUserId()) ==
       "ID inválido") {
