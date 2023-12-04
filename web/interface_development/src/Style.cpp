@@ -88,7 +88,7 @@ void Style::background_attachment(std::string mode){
     _style.push_back("background-image: " + mode + ";");
 }
 void Style::background_repeat(std::string mode){
-    _style.push_back("background-image: " + mode + ";");
+    _style.push_back("background-repeat: " + mode + ";");
 }
 
 
@@ -115,6 +115,10 @@ void Style::flex_wrap(std::string type){
 }
 void Style::flex(int size){
     _style.push_back("flex: " + std::to_string(size) + ";");
+}
+
+void Style::overflow(std::string type){
+    _style.push_back("overflow: " + type + ";");
 }
 
 

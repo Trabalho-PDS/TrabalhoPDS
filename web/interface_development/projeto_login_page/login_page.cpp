@@ -60,7 +60,7 @@ int main(int argc, char **argv, char **envp){
     sty_form_login.height(70, "%");
     sty_form_login.margin("left");
     sty_form_login.margin("right");
-    sty_form_login.margin(30, "%", "top");
+    sty_form_login.margin(20, "%", "top");
 
     cwi::Style sty_inputs_login;
     sty_inputs_login.margin(3);

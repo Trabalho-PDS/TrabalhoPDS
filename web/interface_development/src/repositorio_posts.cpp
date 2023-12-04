@@ -151,11 +151,13 @@ std::vector<std::string> RepositorioPosts::buscar_posts(std::string filter) {
     inputFilePosts.close();
   } catch (const std::ifstream::failure &e) {
     std::cerr << e.what();
+    posts_filtrados.clear();
     return posts_filtrados;
   }
 
   if (stack.empty()) { // não continuar se o filtro não estiver em nenhum post
-    throw std::invalid_argument("filtro inválido");
+    //throw std::invalid_argument("filtro inválido");
+    posts_filtrados.clear();
     return posts_filtrados;
   }
 

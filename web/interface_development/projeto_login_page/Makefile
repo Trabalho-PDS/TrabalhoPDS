@@ -19,7 +19,7 @@ OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
 
-all: clean $(OBJ)
+all: $(OBJ)
 	$(CC) $(MAIN) $(CXXFLAGS) -o $(BIN_FOLDER)$(TARGET) $(OBJ) 
 
 clean:

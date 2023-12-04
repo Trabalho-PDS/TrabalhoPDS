@@ -127,6 +127,7 @@ int main(int argc, char **argv, char **envp){
     cwi::Style sty_body;
     sty_body.padding(0);
     sty_body.margin(0);
+    sty_body.font_family("Patrick Hand");
 
     cwi::Style sty_principal;
     sty_principal.display("flex");
@@ -139,7 +140,7 @@ int main(int argc, char **argv, char **envp){
     sty_principal.height(110, "%");
     sty_principal.width("auto");
     sty_principal.border_radius(15);
-    sty_principal.background_color("black");
+    sty_principal.background_color("#1A68A8");
 
     cwi::Style sty_middle_div;
     sty_middle_div.margin("right");
@@ -147,16 +148,17 @@ int main(int argc, char **argv, char **envp){
     sty_middle_div.margin(2, "%", "top");
     sty_middle_div.margin("bottom");
     sty_middle_div.border_radius(15);
-    sty_middle_div.background_color("#565656");
+    sty_middle_div.background_color("#212B33");
     sty_middle_div.height(84, "%");
     sty_middle_div.width(76, "%");
+    sty_middle_div.overflow("scroll");
 
     cwi::Style sty_right_div;
     sty_right_div.margin("right");
     sty_right_div.margin(2, "%", "top");
     sty_right_div.margin("bottom");
     sty_right_div.border_radius(15);
-    sty_right_div.background_color("#565656");
+    //sty_right_div.background_color("#565656");
     sty_right_div.height(84, "%");
     sty_right_div.width(20,"%");
     sty_right_div.display("block");
@@ -169,21 +171,21 @@ int main(int argc, char **argv, char **envp){
     sty_search.width(97, "%");
     sty_search.height(6, "%");
     sty_search.border_radius(25);
-    sty_search.background_color("#565656");
+    //sty_search.background_color("#565656");
 
     cwi::Style sty_data_users;
     sty_data_users.display("flex");
     sty_data_users.border_radius(15);
     sty_data_users.height(25, "%");
     sty_data_users.width(100, "%");
-    sty_data_users.background_color("white");
+    sty_data_users.background_color("#2599CF");
 
     cwi::Style sty_filters;
     sty_filters.border_radius(15);
     sty_filters.margin(5, "%", "top");
     sty_filters.height(60, "%");
     sty_filters.width(100, "%");
-    sty_filters.background_color("white");
+    sty_filters.background_color("#2599CF");
 
     cwi::Style sty_create_post;
     sty_create_post.border_radius(25);
@@ -196,6 +198,10 @@ int main(int argc, char **argv, char **envp){
     sty_create_post_button.height(100, "%");
     sty_create_post_button.width(100, "%");
     sty_create_post_button.border_radius(25);
+    sty_create_post_button.font_family("Patrick Hand");
+    sty_create_post_button.color("white");
+    sty_create_post_button.background_color("#00F587");
+    sty_create_post_button.border(0, "none", "white");
 
     cwi::Style sty_form_search;
     sty_form_search.height(100, "%");
@@ -210,6 +216,10 @@ int main(int argc, char **argv, char **envp){
     sty_enter_search.border_radius(25);
     sty_enter_search.height(100, "%");
     sty_enter_search.width(9, "%");
+    sty_enter_search.font_family("Patrick Hand");
+    sty_enter_search.background_color("#2432D1");
+    sty_enter_search.color("white");
+    sty_enter_search.border(0, "none", "white");
 
     cwi::Style sty_post_base;
     sty_post_base.width(98, "%");
@@ -218,23 +228,26 @@ int main(int argc, char **argv, char **envp){
     sty_post_base.margin("right");
     sty_post_base.margin(1, "%", "top");
     sty_post_base.border_radius(15);
-    sty_post_base.background_color("#90EE90");
+    sty_post_base.background_color("#2599CF");
 
     cwi::Style sty_post_theme;
     sty_post_theme.display("inline-flex");
     sty_post_theme.font_size(15);
     sty_post_theme.margin(0);
-    sty_post_theme.padding(2);
-    sty_post_theme.color("blue");
+    sty_post_theme.padding(10);
+    sty_post_theme.color("white");
     cwi::Style sty_post_title;
     sty_post_title.display("inline-flex");
     sty_post_title.margin(0);
-    sty_post_title.padding(2);
-    sty_post_title.font_size(20);
+    sty_post_title.padding(5);
+    sty_post_title.font_size(25);
+    sty_post_title.color("white");
     cwi::Style sty_post_body;
     sty_post_body.display("flex");
     sty_post_body.margin(0);
-    sty_post_body.padding(10);
+    sty_post_body.font_size(30);
+    sty_post_body.padding(5);
+    sty_post_body.color("white");
 
     cwi::Style sty_reply_base;
     sty_reply_base.width(98, "%");
@@ -257,7 +270,7 @@ int main(int argc, char **argv, char **envp){
     sty_reply_top.margin("right");
     sty_reply_top.margin(1, "%", "top");
     sty_reply_top.border_radius(15);
-    sty_reply_top.background_color("blue");
+    sty_reply_top.background_color("#2599CF");
     cwi::Style sty_reply_title;
     sty_reply_title.display("inline-flex");
     sty_reply_title.color("white");
@@ -279,6 +292,7 @@ int main(int argc, char **argv, char **envp){
     sty_enter_reply.border_radius(25);
     sty_enter_reply.height(100, "%");
     sty_enter_reply.width(9, "%");
+    sty_enter_reply.font_family("Patrick Hand");
 
     cwi::Style sty_form_new_post;
     sty_form_new_post.display("block");
@@ -305,6 +319,20 @@ int main(int argc, char **argv, char **envp){
     sty_submit_new_post.margin(80, "%", "left");
     sty_submit_new_post.margin(2, "%", "top");
     sty_submit_new_post.border_radius(25);
+    sty_submit_new_post.font_family("Patrick Hand");
+
+    cwi::Style sty_new_post_page_title;
+    sty_new_post_page_title.font_size(30);
+    sty_new_post_page_title.margin(2, "%", "left");
+    sty_new_post_page_title.color("#00F587");
+
+    cwi::Style sty_user_name;
+    sty_user_name.font_size(20);
+    sty_user_name.margin(3, "%", "left");
+    sty_user_name.color("white");
+
+    cwi::Style sty_submit_see_replys;
+    sty_submit_see_replys.font_family("Patrick Hand");
 
     cwi::Div principal("principal");
     cwi::Div right_div("right");
@@ -315,7 +343,7 @@ int main(int argc, char **argv, char **envp){
     cwi::Div create_post("create_post_button");
 
     cwi::Div search("search");
-    cwi::Form form_search("form_search", EXE_FILE_NAME, "post");
+    cwi::Form form_search("form_search", EXE_FILE_NAME, "get");
     
     cwi::Div time_line("time_line");
 
@@ -335,7 +363,11 @@ int main(int argc, char **argv, char **envp){
     cwi::TextBox input_theme_new_post("input_theme_new_post", "Materia");
     cwi::Form form_new_post("form_new_post", EXE_FILE_NAME, "get");
 
-    cwi::Text user_name("h4", "user_name", user->Name());
+    cwi::Text user_name("h4", "user_name", "* Usuario: " + user->Name());
+
+    user_name.add_style(sty_user_name);
+
+    text_create_new_post.add_style(sty_new_post_page_title);
 
     input_search.add_style(sty_input_search);
     form_search.add_style(sty_form_search);
@@ -390,11 +422,27 @@ int main(int argc, char **argv, char **envp){
         std::ifstream r("../storage/replys/" + options_vec[0] + ".txt");
         if(r){
             std::ofstream replys("../storage/replys/" + options_vec[0] + ".txt", std::ios::app);
-            replys << options_vec[1] << std::endl;
+            std::string reply;
+            for(auto it : options_vec[1]){
+                if(it == '+'){
+                    reply += ' ';
+                    continue;
+                }
+                reply += it;
+            }
+            replys << reply << std::endl;
             replys.close();
         }else{
             std::ofstream replys("../storage/replys/" + options_vec[0] + ".txt", std::ios::out);
-            replys << options_vec[1] << std::endl;
+            std::string reply;
+            for(auto it : options_vec[1]){
+                if(it == '+'){
+                    reply += ' ';
+                    continue;
+                }
+                reply += it;
+            }
+            replys << reply << std::endl;
             replys.close();
         }
         r.close();
@@ -437,7 +485,15 @@ int main(int argc, char **argv, char **envp){
 
     }
     else{
-        for(auto it : posts_repo.buscar_posts("")){
+        std::string filter = "";
+        for(auto it : options["input_search"]){
+            if(it == '+'){
+                break;
+            }
+            filter += it;
+        }
+        if(!posts_repo.buscar_posts(filter).empty()){
+        for(auto it : posts_repo.buscar_posts(filter)){
             std::vector<std::string> posts_properties;
             std::string delimiter = "$&n&$~~";
             size_t pos = 0;
@@ -456,6 +512,7 @@ int main(int argc, char **argv, char **envp){
             cwi::Text *body_post = new cwi::Text("h2", "body_post", posts_properties[3]);
             cwi::Form *form_see_reply = new cwi::Form("form_see_reply", EXE_FILE_NAME + "?replys=" + posts_properties[0], "post");
             form_see_reply->submit("submit_replys", "Respostas");
+            form_see_reply->submit_style(sty_submit_see_replys);
             post_base->child(form_see_reply);
             post_base->insert(theme_post);
             post_base->insert(title_post);
@@ -466,13 +523,14 @@ int main(int argc, char **argv, char **envp){
             body_post->add_style(sty_post_body);
             main_posts.push_back(post_base);
         }
-
         for(auto it : main_posts){
             middle_div.child(it);
+        }
         }
     }
 
     cwi::Render render_main_page("main_page");
+    render_main_page.insert_head("<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Agbalumo&family=Patrick+Hand&family=Titan+One&display=swap\" rel=\"stylesheet\">");
     render_main_page.add_style(sty_body);
     render_main_page.insert(&principal);
 

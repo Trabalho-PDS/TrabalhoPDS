@@ -45,6 +45,8 @@ class Style{
         
         void flex_wrap(std::string type);
         void flex(int size);
+
+        void overflow(std::string type);
         
         std::list<std::string> property();
 
