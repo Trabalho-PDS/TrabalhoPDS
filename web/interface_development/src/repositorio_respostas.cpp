@@ -24,6 +24,7 @@ void RepositorioRespostas::answer_post(std::string const &post_id,
 
     FileAnswers << answer_id + "$&n&$~~" + post_id + "$&n&$~~" + id_monitor +
                        "$&n&$~~" + content + "\n";
+    
     FileAnswers.close();
   } catch (const std::ofstream::failure &e) {
     std::cerr << e.what();
@@ -102,7 +103,8 @@ RepositorioRespostas::answers_by_post_id(std::string const &post_id) {
   }
 
   if (stack.empty()) { // não continuar se o filtro não estiver em nenhum post
-    throw std::invalid_argument("post inválido");
+    //throw std::invalid_argument("post inválido");
+    respostas_filtradas.clear();
     return respostas_filtradas;
   }
 

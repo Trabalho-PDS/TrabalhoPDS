@@ -10,6 +10,9 @@
 #include "../include/gerenciar_posts.hpp"
 #include "../include/repositorio_posts.hpp"
 
+#include "../include/resposta.hpp"
+#include "../include/gerenciar_respostas.hpp"
+
 #include <map>
 #include <vector>
 #include <fstream>
@@ -38,6 +41,7 @@ int main(int argc, char **argv, char **envp){
     std::string buffer_option;
     std::string buffer_param;
     std::map<std::string, std::string> options;
+    std::vector<std::string> options_vec;
 
     for(int i = 0; query_msg[i] != '\0'; i++){
         if(query_msg[i] != '='){
@@ -52,6 +56,8 @@ int main(int argc, char **argv, char **envp){
                     buffer_param = buffer_param + query_msg[i];
                 }
             }
+            options_vec.push_back(buffer_option);
+            options_vec.push_back(buffer_param);
             options[buffer_option] = buffer_param;
             buffer_option = "";
             buffer_param = "";
@@ -230,6 +236,50 @@ int main(int argc, char **argv, char **envp){
     sty_post_body.margin(0);
     sty_post_body.padding(10);
 
+    cwi::Style sty_reply_base;
+    sty_reply_base.width(98, "%");
+    sty_reply_base.height("auto");
+    sty_reply_base.margin("left");
+    sty_reply_base.margin("right");
+    sty_reply_base.margin(1, "%", "top");
+    sty_reply_base.border_radius(15);
+    sty_reply_base.background_color("#90EE90");
+    cwi::Style sty_reply_body;
+    sty_reply_body.display("inline-flex");
+    sty_reply_body.margin(0);
+    sty_reply_body.padding(10);
+    sty_reply_body.font_size(20);
+
+    cwi::Style sty_reply_top;
+    sty_reply_top.width(98, "%");
+    sty_reply_top.height("auto");
+    sty_reply_top.margin("left");
+    sty_reply_top.margin("right");
+    sty_reply_top.margin(1, "%", "top");
+    sty_reply_top.border_radius(15);
+    sty_reply_top.background_color("blue");
+    cwi::Style sty_reply_title;
+    sty_reply_title.display("inline-flex");
+    sty_reply_title.color("white");
+    sty_reply_title.margin(0);
+    sty_reply_title.padding(10);
+    sty_reply_title.font_size(30);
+
+    cwi::Style sty_form_reply;
+    sty_form_reply.margin(2, "%", "top");
+    sty_form_reply.margin("left");
+    sty_form_reply.margin("right");
+    sty_form_reply.height(8, "%");
+    sty_form_reply.width(90, "%");
+    cwi::Style sty_input_reply;
+    sty_input_reply.border_radius(25);
+    sty_input_reply.height(100, "%");
+    sty_input_reply.width(90, "%");
+    cwi::Style sty_enter_reply;
+    sty_enter_reply.border_radius(25);
+    sty_enter_reply.height(100, "%");
+    sty_enter_reply.width(9, "%");
+
     cwi::Style sty_form_new_post;
     sty_form_new_post.display("block");
     sty_form_new_post.width(98, "%");
@@ -336,10 +386,57 @@ int main(int argc, char **argv, char **envp){
     std::vector<cwi::Div*> main_posts;
     RepositorioPosts posts_repo;
 
+    if(!(options_vec.empty()) && options_vec[0] != "" && options_vec[0] != "create" && options_vec[0] != "replys"){
+        std::ifstream r("../storage/replys/" + options_vec[0] + ".txt");
+        if(r){
+            std::ofstream replys("../storage/replys/" + options_vec[0] + ".txt", std::ios::app);
+            replys << options_vec[1] << std::endl;
+            replys.close();
+        }else{
+            std::ofstream replys("../storage/replys/" + options_vec[0] + ".txt", std::ios::out);
+            replys << options_vec[1] << std::endl;
+            replys.close();
+        }
+        r.close();
+    }
+
     if(options["create"] == "create_post"){
         middle_div.insert(&text_create_new_post);
         middle_div.child(&form_new_post);
-    }else{
+    }else if(options["replys"] != ""){
+        cwi::Div *reply_page =  new cwi::Div("reply_page");
+        cwi::Text *reply_page_title = new cwi::Text("h2", "reply_page_title", "Respostas:");
+        reply_page->add_style(sty_reply_top);
+        reply_page_title->add_style(sty_reply_title);
+        reply_page->insert(reply_page_title);
+        main_posts.push_back(reply_page);
+        std::ifstream r("../storage/replys/" + options["replys"] + ".txt");
+        if(r){
+            std::string reply;
+            while(std::getline(r, reply)){
+                cwi::Div *reply_base = new cwi::Div("reply");
+                cwi::Text *body_reply = new cwi::Text("h2", "body_reply", ">> " + reply);
+                reply_base->add_style(sty_reply_base);
+                body_reply->add_style(sty_reply_body);
+                reply_base->insert(body_reply);
+                main_posts.push_back(reply_base);
+            }
+        }
+        cwi::Form *form_reply_post = new cwi::Form("form_reply_post", EXE_FILE_NAME, "get");
+        cwi::TextBox *input_reply_post = new cwi::TextBox(options["replys"], "Adicionar a discussão:");
+        form_reply_post->submit("submit_reply", "Enviar");
+        form_reply_post->add_style(sty_form_reply);
+        form_reply_post->submit_style(sty_enter_reply);
+        input_reply_post->add_style(sty_input_reply);
+        form_reply_post->insert(input_reply_post);
+        main_posts.push_back(form_reply_post);
+
+        for(auto it : main_posts){
+            middle_div.child(it);
+        }
+
+    }
+    else{
         for(auto it : posts_repo.buscar_posts("")){
             std::vector<std::string> posts_properties;
             std::string delimiter = "$&n&$~~";
@@ -357,6 +454,9 @@ int main(int argc, char **argv, char **envp){
             cwi::Text *theme_post = new cwi::Text("h2", "theme_post", posts_properties[2]);
             cwi::Text *title_post = new cwi::Text("h2", "title_post", posts_properties[1]);
             cwi::Text *body_post = new cwi::Text("h2", "body_post", posts_properties[3]);
+            cwi::Form *form_see_reply = new cwi::Form("form_see_reply", EXE_FILE_NAME + "?replys=" + posts_properties[0], "post");
+            form_see_reply->submit("submit_replys", "Respostas");
+            post_base->child(form_see_reply);
             post_base->insert(theme_post);
             post_base->insert(title_post);
             post_base->insert(body_post);

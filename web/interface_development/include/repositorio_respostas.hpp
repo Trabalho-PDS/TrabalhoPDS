@@ -15,6 +15,6 @@ public:
   std::vector<std::string> answers_by_post_id(std::string const& post_id);
 private: 
   //std::string _currentPath = std::filesystem::current_path().string();
-  std::string _filePath = "storage/resposta.txt";
+  std::string _filePath = "../storage/resposta.txt";
 
 };

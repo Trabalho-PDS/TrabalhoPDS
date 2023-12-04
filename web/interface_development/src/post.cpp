@@ -12,8 +12,8 @@ std::string generate_post_id() {
   // inicializar gerador de número aleatório
   std::random_device rd;
   std::mt19937 gen(rd());
-  std::uniform_int_distribution<int> dist(0,
-                                          61); // inteiros entre 0 e 61
+  std::uniform_int_distribution<int> dist(1,
+                                          26); // inteiros entre 0 e 61
 
   for (int i = 0; i < 16; i++) {
     int randomNumber = dist(gen);

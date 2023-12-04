@@ -56,6 +56,9 @@ void GerenciarRespostas::delete_answer(std::string const &id_resposta) {
 
 std::vector<Resposta>
 GerenciarRespostas::respostas_do_post(std::string const &post_id) {
+        std::cout << "Content-type: text/html\n\n";
+
+  std::cout << "here\n";
   RepositorioRespostas repositorio;
   std::vector<std::string> my_vec = repositorio.answers_by_post_id(post_id);
   std::vector<Resposta> answers;
