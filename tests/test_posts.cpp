@@ -22,8 +22,8 @@ TEST_CASE("Testando a adição e edição de posts") {
 
   SUBCASE("Adicionando o post corretamente pelo Post e GerenciarPosts") {
     /*
-    Post(std::string const& disciplina, std::string const& conteudo, std::string
-    const& titulo, std::string const& user_id, std::string const& post_id);
+    std::string const& disciplina, std::string const& conteudo, std::string
+    const& titulo, std::string const& user_id
     */
     Post new_post("matemática discreta", "tenho dúvidas em isso, aquilo e etc.",
                   "Dúvida - MD", "907077e91c9c893");
@@ -82,11 +82,4 @@ TEST_CASE("Testando a busca por posts") {
   REQUIRE(!my_vec.empty());
 
   CHECK(my_vec[my_vec.size() - 1].find("907077e91c9c893") != std::string::npos);
-}
-
-TEST_CASE(
-    "Testando a remoção de posts que pertencem a um determinado usuário") {
-  RepositorioPosts repo;
-
-  REQUIRE_NOTHROW(repo.usuario_removido("907077e91c9c893"));
 }

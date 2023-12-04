@@ -18,13 +18,14 @@ void RepositorioPosts::criar_post(std::string const titulo,
                                   std::string const post_id,
                                   std::string const user_id) {
 
-  std::ofstream FilePosts;
+  std::ofstream FilePosts; // arquivo em que serão escritas as novas informações (novo post)
 
   try {
-    FilePosts.open(RepositorioPosts::_filePath, std::ios::app);
+    FilePosts.open(RepositorioPosts::_filePath, std::ios::app); // std::ios::app - sobrescreve as informações
 
     FilePosts << post_id + "$&n&$~~" + titulo + "$&n&$~~" + disciplina +
-                     "$&n&$~~" + conteudo + "$&n&$~~" + user_id + "\n";
+                     "$&n&$~~" + conteudo + "$&n&$~~" + user_id + "\n"; /* eu não poderia separar uma informação da outra por um caracter comum, como ; ou / pq as chances de
+    um post ter esses caracteres são muito  grandes, aí decidi colocar essa string aí */
     FilePosts.close();
   } catch (const std::ofstream::failure &e) {
     std::cerr << e.what();
@@ -34,7 +35,7 @@ void RepositorioPosts::criar_post(std::string const titulo,
 
 void RepositorioPosts::remover_post(std::string post_id) {
   // armazena o conteúdo do arquivo na memória
-  std::ifstream inputFilePosts;
+  std::ifstream inputFilePosts; // arquivo vai ser aberto para leitura e checaremos também se o post existe ou não
   bool exists = false;
   std::vector<std::string> lines;
 
@@ -82,7 +83,7 @@ void RepositorioPosts::editar_post(std::string const &titulo,
                                    std::string const &conteudo,
                                    std::string const &post_id,
                                    std::string const &user_id) {
-  std::ifstream inputFilePosts;
+  std::ifstream inputFilePosts;// vai abrir para modo de leitura e ver se o id é válido ou não
   std::vector<std::string> lines;
   bool exists = false;
 
@@ -137,7 +138,7 @@ std::vector<std::string> RepositorioPosts::buscar_posts(std::string filter) {
 
   std::stack<std::string> stack;
 
-  std::ifstream inputFilePosts;
+  std::ifstream inputFilePosts; // vai abrir em modo de leitura
   std::vector<std::string> lines;
 
   try {
@@ -145,7 +146,7 @@ std::vector<std::string> RepositorioPosts::buscar_posts(std::string filter) {
     std::string line = "";
     while (std::getline(inputFilePosts, line)) {
       if (line.find(filter) != std::string::npos) {
-        stack.push(line);
+        stack.push(line); // adiciona a linha na stack se ela corresponder com o filtro procurado
       }
     }
     inputFilePosts.close();
@@ -166,6 +167,7 @@ std::vector<std::string> RepositorioPosts::buscar_posts(std::string filter) {
     posts_filtrados.push_back(stack.top());
     stack.pop();
   }
-
+  /* decidi usar a stack, pois os posts mais recentes devem aparecer primeiro. Como a stack segue essa lógica (FILO) fez mais sentido usar ela.
+  coloquei as informações no vector depois pois o vector dá uma facilidade maior para achar um índice específico do que a stack */
   return posts_filtrados;
 }
