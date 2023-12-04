@@ -8,8 +8,10 @@
 
 class Monitor : public User, public GerenciarPosts {
     public:
+        //Construtor
         Monitor(std::string id_user, std::string email, std::string name, std::string type);
 
+        //Implementação do metodo virtual herdado;
         std::string Type();
 
     private:
