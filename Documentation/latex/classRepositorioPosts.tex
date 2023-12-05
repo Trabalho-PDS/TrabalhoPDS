@@ -1,0 +1,114 @@
+\doxysection{Repositorio\+Posts Class Reference}
+\hypertarget{classRepositorioPosts}{}\label{classRepositorioPosts}\index{RepositorioPosts@{RepositorioPosts}}
+Inheritance diagram for Repositorio\+Posts\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRepositorioPosts}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRepositorioPosts_a17cf3306033ad85d988e136ad47a2f23}{criar\+\_\+post}} (std\+::string const titulo, std\+::string const disciplina, std\+::string const conteudo, std\+::string const post\+\_\+id, std\+::string const user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da criação de um post, o adicionando no banco de dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRepositorioPosts_a292bb58291176ef85743f13a14855934}{remover\+\_\+post}} (std\+::string const id\+\_\+post)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da remoção de um post do banco de dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRepositorioPosts_a670d23eb47807d2a8637b663de232033}{editar\+\_\+post}} (std\+::string const \&titulo, std\+::string const \&disciplina, std\+::string const \&conteudo, std\+::string const \&post\+\_\+id, std\+::string const \&user\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da edição de um post no banco de dados. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classRepositorioPosts_ac2d10ced0302267a81ff293fab14d603}{buscar\+\_\+posts}} (std\+::string filter)
+\begin{DoxyCompactList}\small\item\em Retorna todos os posts obtidos, atraves de um vetor, apos uma busca no banco de dados com determinada palavra filtro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{repositorio__posts_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{repositorio__posts_8hpp_source}{repositorio\+\_\+posts.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRepositorioPosts_ac2d10ced0302267a81ff293fab14d603}\label{classRepositorioPosts_ac2d10ced0302267a81ff293fab14d603} 
+\index{RepositorioPosts@{RepositorioPosts}!buscar\_posts@{buscar\_posts}}
+\index{buscar\_posts@{buscar\_posts}!RepositorioPosts@{RepositorioPosts}}
+\doxysubsubsection{\texorpdfstring{buscar\_posts()}{buscar\_posts()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Repositorio\+Posts\+::buscar\+\_\+posts (\begin{DoxyParamCaption}\item[{std\+::string}]{filter }\end{DoxyParamCaption})}
+
+
+
+Retorna todos os posts obtidos, atraves de um vetor, apos uma busca no banco de dados com determinada palavra filtro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filter} & filtro de pesquisa. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em std\+::vector$<$std\+::string$>$} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioPosts_a17cf3306033ad85d988e136ad47a2f23}\label{classRepositorioPosts_a17cf3306033ad85d988e136ad47a2f23} 
+\index{RepositorioPosts@{RepositorioPosts}!criar\_post@{criar\_post}}
+\index{criar\_post@{criar\_post}!RepositorioPosts@{RepositorioPosts}}
+\doxysubsubsection{\texorpdfstring{criar\_post()}{criar\_post()}}
+{\footnotesize\ttfamily void Repositorio\+Posts\+::criar\+\_\+post (\begin{DoxyParamCaption}\item[{std\+::string const}]{titulo,  }\item[{std\+::string const}]{disciplina,  }\item[{std\+::string const}]{conteudo,  }\item[{std\+::string const}]{post\+\_\+id,  }\item[{std\+::string const}]{user\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da criação de um post, o adicionando no banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titulo,disciplina,conteudo,post\+\_\+id,user\+\_\+id} & titulo, disciplina, conteudo, post\+\_\+id, user\+\_\+id. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioPosts_a670d23eb47807d2a8637b663de232033}\label{classRepositorioPosts_a670d23eb47807d2a8637b663de232033} 
+\index{RepositorioPosts@{RepositorioPosts}!editar\_post@{editar\_post}}
+\index{editar\_post@{editar\_post}!RepositorioPosts@{RepositorioPosts}}
+\doxysubsubsection{\texorpdfstring{editar\_post()}{editar\_post()}}
+{\footnotesize\ttfamily void Repositorio\+Posts\+::editar\+\_\+post (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{titulo,  }\item[{std\+::string const \&}]{disciplina,  }\item[{std\+::string const \&}]{conteudo,  }\item[{std\+::string const \&}]{post\+\_\+id,  }\item[{std\+::string const \&}]{user\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da edição de um post no banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titulo,disciplina,conteudo,post\+\_\+id,user\+\_\+id} & titulo, disciplina, conteudo, post\+\_\+id, user\+\_\+id. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioPosts_a292bb58291176ef85743f13a14855934}\label{classRepositorioPosts_a292bb58291176ef85743f13a14855934} 
+\index{RepositorioPosts@{RepositorioPosts}!remover\_post@{remover\_post}}
+\index{remover\_post@{remover\_post}!RepositorioPosts@{RepositorioPosts}}
+\doxysubsubsection{\texorpdfstring{remover\_post()}{remover\_post()}}
+{\footnotesize\ttfamily void Repositorio\+Posts\+::remover\+\_\+post (\begin{DoxyParamCaption}\item[{std\+::string const}]{id\+\_\+post }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da remoção de um post do banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+post} & id do post. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+repositorio\+\_\+posts.\+hpp\end{DoxyCompactItemize}

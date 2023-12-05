@@ -1,0 +1,34 @@
+\doxysection{repositorio\+\_\+posts.\+hpp}
+\hypertarget{repositorio__posts_8hpp_source}{}\label{repositorio__posts_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00011}\mbox{\hyperlink{classRepositorioPosts}{00011}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRepositorioPosts}{RepositorioPosts}}\ \{}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00012}00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00018}\mbox{\hyperlink{classRepositorioPosts_a17cf3306033ad85d988e136ad47a2f23}{00018}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRepositorioPosts_a17cf3306033ad85d988e136ad47a2f23}{criar\_post}}(std::string\ \textcolor{keyword}{const}\ titulo,}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ disciplina,}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ conteudo,}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ post\_id,}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ user\_id);}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00028}\mbox{\hyperlink{classRepositorioPosts_a292bb58291176ef85743f13a14855934}{00028}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRepositorioPosts_a292bb58291176ef85743f13a14855934}{remover\_post}}(std::string\ \textcolor{keyword}{const}\ id\_post);}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00034}\mbox{\hyperlink{classRepositorioPosts_a670d23eb47807d2a8637b663de232033}{00034}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRepositorioPosts_a670d23eb47807d2a8637b663de232033}{editar\_post}}(std::string\ \textcolor{keyword}{const}\&\ titulo,\ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ disciplina,\ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ conteudo,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ post\_id,}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ user\_id);}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00044}\mbox{\hyperlink{classRepositorioPosts_ac2d10ced0302267a81ff293fab14d603}{00044}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classRepositorioPosts_ac2d10ced0302267a81ff293fab14d603}{buscar\_posts}}(std::string\ filter);}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00046}00046\ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00047}00047\ \ \ \textcolor{comment}{//std::string\ \_currentPath\ =\ std::filesystem::current\_path().string();}}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00048}00048\ \ \ std::string\ \_filePath\ =\ \textcolor{stringliteral}{"{}../storage/post.txt"{}};}
+\DoxyCodeLine{\Hypertarget{repositorio__posts_8hpp_source_l00049}00049\ \};}
+
+\end{DoxyCode}

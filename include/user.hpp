@@ -5,20 +5,35 @@
 
 class User{
     public:
-        //Construtor default;
+        /**
+        * @brief Construtor genérico da classe User.
+        * @retval none.
+        * */
         User();
-
-        //Construtor padrão;
+        /**
+        * @brief Construtor padrão da classe User.
+        * @param id_user, email, name: id_user, email, name.
+        * */
         User(std::string id_user, std::string email, std::string name);
-
-        //Metodo get do campo privado _email;
+        /**
+        * @brief Metodo get do campo privado _email.
+        * @retval std::string
+        * */
         std::string Email() const;
-        //Metodo get do campo privado _name;
+        /**
+        * @brief Metodo get do campo privado _name.
+        * @retval std::string
+        * */
         std::string Name() const;
-        //Metodo get do campo privado _id_user;
+        /**
+        * @brief Metodo get do campo privado _id_user.
+        * @retval std::string
+        * */
         std::string Id() const;
-
-        //Metodo virtual get do campo _type a ser implementado pelas heranças;
+        /**
+        * @brief Metodo virtual get do campo _type a ser implementado pelas heranças.
+        * @retval std::string
+        * */
         virtual std::string Type() = 0; 
 
 

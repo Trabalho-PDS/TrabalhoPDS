@@ -9,21 +9,40 @@
 
 class Gerenciar_usuarios : public RepositorioUsuarios, RepositorioPosts{
     public:
-        //Cria um novo usuario, retorna verdadeiro se o usuario for criado com sucesso;
+        /**
+        * @brief Cria um novo usuario, retorna verdadeiro se o usuario for criado com sucesso.
+        * @param email, senha, nome_completo, tipo: email, senha, nome completo, tipo.
+        * @retval bool
+        * */
         bool create_user(const std::string email, const std::string senha,  std::string const nome_completo, const std::string tipo);
-        
-        //Remove um usuario;
+        /**
+        * @brief Remove um usuario.
+        * @param id_usuario: id de um usuario.
+        * @retval none.
+        * */
         void remove_user(std::string id_usuario);
-        
-        //Autentica um usuario, retorna verdadeiro se o mesmo existir;
+        /**
+        * @brief Autentica um usuario, retorna verdadeiro se o mesmo existir.
+        * @param email, senha: email, senha.
+        * @retval none.
+        * */
         bool authenticate_user(std::string email, std::string senha);
-
-        //Encontra um usuario especifico, cria o seu respectivo objeto, e retorna um ponteiro para o mesmo;
+        /**
+        * @brief Encontra um usuario especifico, cria o seu respectivo objeto, e retorna um ponteiro para o mesmo.
+        * @param email: email.
+        * @retval User*
+        * */
         User* find_user(std::string email);
-
-        //Edita as informações de um usuario;
+        /**
+        * @brief Edita as informações de um usuario.
+        * @param id_usuario, email, senha, nome_completo, tipo: id_usuario, email, senha, nome_completo.
+        * @retval none.
+        * */
         void edit_user(std::string id_usuario, const std::string email, const std::string senha,  std::string const nome_completo, const std::string tipo);
-        
-        //Retorna um vetor com todos os posts já feitos por determinado usuario;
+        /**
+        * @brief Retorna um vetor com todos os posts já feitos por determinado usuario.
+        * @param id_usuario: id do usuario.
+        * @retval std::vector<std::string>
+        * */
         std::vector<std::string> get_posts(std::string id_usuario);
 };

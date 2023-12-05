@@ -1,0 +1,23 @@
+\doxysection{gerenciar\+\_\+usuarios.\+hpp}
+\hypertarget{gerenciar__usuarios_8hpp_source}{}\label{gerenciar__usuarios_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}repositorio\_usuarios.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}repositorio\_posts.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}post.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}user.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00010}\mbox{\hyperlink{classGerenciar__usuarios}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGerenciar__usuarios}{Gerenciar\_usuarios}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classRepositorioUsuarios}{RepositorioUsuarios}},\ \mbox{\hyperlink{classRepositorioPosts}{RepositorioPosts}}\{}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00017}\mbox{\hyperlink{classGerenciar__usuarios_a7fe27be62979296ae277479dbc46cc6d}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGerenciar__usuarios_a7fe27be62979296ae277479dbc46cc6d}{create\_user}}(\textcolor{keyword}{const}\ std::string\ email,\ \textcolor{keyword}{const}\ std::string\ senha,\ \ std::string\ \textcolor{keyword}{const}\ nome\_completo,\ \textcolor{keyword}{const}\ std::string\ tipo);}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00023}\mbox{\hyperlink{classGerenciar__usuarios_a67aa0021d8428f10030e6a183511d6a1}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGerenciar__usuarios_a67aa0021d8428f10030e6a183511d6a1}{remove\_user}}(std::string\ id\_usuario);}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00029}\mbox{\hyperlink{classGerenciar__usuarios_a0e044ec883964a646b6fe50d30b927ca}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGerenciar__usuarios_a0e044ec883964a646b6fe50d30b927ca}{authenticate\_user}}(std::string\ email,\ std::string\ senha);}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00035}\mbox{\hyperlink{classGerenciar__usuarios_a92b626075a84a75ae12b60d8f3f160d3}{00035}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classUser}{User}}*\ \mbox{\hyperlink{classGerenciar__usuarios_a92b626075a84a75ae12b60d8f3f160d3}{find\_user}}(std::string\ email);}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00041}\mbox{\hyperlink{classGerenciar__usuarios_a386556f46fbd53cca20902ce603cc979}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGerenciar__usuarios_a386556f46fbd53cca20902ce603cc979}{edit\_user}}(std::string\ id\_usuario,\ \textcolor{keyword}{const}\ std::string\ email,\ \textcolor{keyword}{const}\ std::string\ senha,\ \ std::string\ \textcolor{keyword}{const}\ nome\_completo,\ \textcolor{keyword}{const}\ std::string\ tipo);}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00047}\mbox{\hyperlink{classGerenciar__usuarios_a19c5aea1abee27698f46e830f78189e2}{00047}}\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classGerenciar__usuarios_a19c5aea1abee27698f46e830f78189e2}{get\_posts}}(std::string\ id\_usuario);}
+\DoxyCodeLine{\Hypertarget{gerenciar__usuarios_8hpp_source_l00048}00048\ \};}
+
+\end{DoxyCode}
