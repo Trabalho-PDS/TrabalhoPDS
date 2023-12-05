@@ -1,63 +1,56 @@
-####################################################
-#                      MAKEFILE                    #
-####################################################
+# Compiler
+CXX := g++
+# Flags para o compilador
+CXXFLAGS := -std=c++17 -Wall -Wextra -I include
 
-##### DEFINES #####
-APPS = ./apps/tests
-DOCTEST = ./DOCTEST
-HEADERS = ./headers
-SRC = ./src
-TESTS = ./tests
-OBJ = ./obj
-CWI = ./Capybara
-FINAL_INCLUDES = ./CWI
+# Diretórios
+BIN_DIR := bin
+BIN_TESTS_DIR := bin_tests
+OBJ_DIR := obj
+INCLUDE_DIR := include
+SRC_DIR := src
+TEST_DIR := tests
 
-LIBS = $(DOCTEST)/* -lCwI -L $(CWI)
+# Arquivos fonte
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 
-##### ALL #####
-all: headers apps atz_files
+# Arquivos fonte para o código de teste
+TEST_SRCS := $(wildcard $(TEST_DIR)/*.cpp)
 
-##### COMPILE HEADERS FILES #####
-headers:\
-	$(OBJ)/Div.o \
-	$(OBJ)/Element.o \
-	$(OBJ)/Style.o \
-	$(OBJ)/Text.o \
-	$(OBJ)/Image.o \
-	$(OBJ)/TextBox.o \
-	$(OBJ)/Button.o \
-	$(OBJ)/Form.o \
-	$(OBJ)/Render.o
-	ar -rcs $(CWI)/libCwI.a $(OBJ)/*.o
+# Nome do executável
+TARGET := $(BIN_DIR)/main.exe
 
-##### COMPILE APPS #####
-apps:\
-	clean_tests \
-	$(APPS)/test_div \
-	$(APPS)/test_text \
-	$(APPS)/test_style \
-	$(APPS)/test_image \
-	$(APPS)/test_textbox \
-	$(APPS)/test_button \
-	$(APPS)/test_form \
-	$(APPS)/test_render
+# Nome do executável de testes
+TEST_TARGET := $(patsubst $(TEST_DIR)/%.cpp, $(BIN_TESTS_DIR)/%.exe, $(TEST_SRCS))
 
-atz_files:
-	rm -rf $(FINAL_INCLUDES)/*
-	cp $(HEADERS)/* $(FINAL_INCLUDES)
+# Regras de compilação
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-##### GENERAL DIRECTIVE FOR COMPILE OBJ FILES #####
-$(OBJ)/%.o: $(SRC)/%.cpp $(HEADERS)/%.hpp
-	g++ -c $< -Wall -I $(HEADERS) -o $@
+$(BIN_TESTS_DIR)/%.exe: $(TEST_DIR)/%.cpp $(filter-out $(OBJ_DIR)/main.o, $(OBJS))
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
-##### GENERAL DIRECTIVE FOR COMPILE EXE FILES #####
-$(APPS)/%: $(TESTS)/%.cpp
-	g++ $< -Wall $(LIBS) -I $(HEADERS) -o $@
+# Regras principais
+build: $(TARGET) $(TEST_TARGET)
 
-##### CLEAN OLD VERSIONS #####
+# Essa regra não funciona corretamente, isso foi o mais próximo que cheguei do que deveria ser
+test:
+	$(foreach var, $(TEST_TARGET), ./$(var);)
+
+run: $(TARGET)
+	@./$(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+# Limpar arquivos intermediários e executáveis
 clean:
-	rm -rf $(APPS)/* $(CWI)/* $(OBJ)/*
+# Próxima linha: clean para Linux
+#	@rm -rf $(OBJ_DIR)/* $(BIN_DIR)/* $(BIN_TESTS_DIR)/* $(OBJ_TEST_DIR)/*
+	del $(OBJ_DIR)\* $(BIN_DIR)\* $(BIN_TESTS_DIR)\*
 
-##### CLEAN ALL APPS FOR NEW COMPILE #####
-clean_tests:
-	rm -rf $(APPS)/*
+# Fazer clean e build
+rebuild: clean build
+
+.PHONY: build test run clean rebuild
