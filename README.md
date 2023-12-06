@@ -22,9 +22,53 @@ e também para que a universidade à qual estão inseridos possa gratificá-los 
 ### Front end:
 - HTML
   
-	> Para que não fosse necessário o uso de JavaScript, foi desenvolvida a _Capibara Web Interface_,
- uma interface que implementa as funções necessárias no HTML diretamente em um servidor. Pode-se
- entender que a "saída" da interface é o código HTML formatado e que recebe entradas para o restante do programa.
+	> Para que o projeto fosse feito de maneira mais simples, sem o uso de muitas outras tecnologias adicionais, e o foco principal fosse a linguagem c++, foi desenvolvida a _Capibara Web Interface_,uma biblioteca que traduz o html para o c++.
+	[https://github.com/LcsDeveloper/Capybara-Web-Interface]
+
+## Guia de Instalação
+Para executar o projeto final, é necessario a utilização de um server com suporte a tecnologia CGI. Em nosso projeto durante todo o desenvolvimento utilizamos o Apache.
+
+### Instalando e configurando o servidor
+
+> Atualizando os repositorios:
+```
+sudo apt-get update ; sudo apt-get upgrade
+```
+
+> Instalando o Apache:
+```
+sudo apt-get install apache2 -y
+```
+
+> Configurando o modulo CGI do servidor:
+```
+sudo nano /etc/apache2/mods-enabled/mime.conf
+```
+- Altere a linha: ``` #AddHandler cgi-script .cgi ```
+- Para: ``` AddHandler cgi-script .cgi .out ```
+
+> Ativando o modulo cgi:
+```
+sudo a2enmod cgi
+```
+
+> Reiniciando o servidor com as novas configurações:
+```
+sudo systemctl restart apache2
+```
+
+> Instalando o projeto final:
+- Altere a pasta ```/usr/lib/cgi-bin```
+- Para a pasta ```cgi-bin``` do projeto:
+  [https://github.com/Trabalho-PDS/TrabalhoPDS/tree/main/PROJETO_FINAL]
+
+> Adicione as permissões:
+```
+sudo chmod -R 777 /usr/lib/cgi-bin
+```
+
+> Em um navegador acesse:
+- localhost/cgi-bin/forum/login_page.out
 
 ## Autores
 Layane Garcia  
