@@ -38,8 +38,9 @@ build: $(TARGET) $(TEST_TARGET)
 test:
 	$(foreach var, $(TEST_TARGET), ./$(var);)
 
-run: $(TARGET)
-	@./$(TARGET)
+#Caso use um navegador diferente, altere a linha abaixo para o mesmo.
+run:
+	firefox localhost/cgi-bin/forum/login_page.out
 
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
