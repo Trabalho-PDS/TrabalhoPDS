@@ -1,0 +1,86 @@
+\doxysection{Repositorio\+Respostas Class Reference}
+\hypertarget{classRepositorioRespostas}{}\label{classRepositorioRespostas}\index{RepositorioRespostas@{RepositorioRespostas}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRepositorioRespostas_a9b0f6cde16b48762b73da2fb7e3b6bf5}{answer\+\_\+post}} (std\+::string const \&post\+\_\+id, std\+::string const \&id\+\_\+monitor, std\+::string const \&content, std\+::string const \&answer\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da criação de uma resposta, a adicionando no banco de dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRepositorioRespostas_ac67dbadfb41e9c7d455e69d36e6a336d}{delete\+\_\+answer}} (std\+::string const \&answer\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da remoção de uma resposta no banco de dados. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classRepositorioRespostas_ad0afaf5299591eb459e2ac3b2923fa21}{answers\+\_\+by\+\_\+post\+\_\+id}} (std\+::string const \&post\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Retorna todas as respostas relacionadas a um determinado post. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{repositorio__respostas_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{repositorio__respostas_8hpp_source}{repositorio\+\_\+respostas.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRepositorioRespostas_a9b0f6cde16b48762b73da2fb7e3b6bf5}\label{classRepositorioRespostas_a9b0f6cde16b48762b73da2fb7e3b6bf5} 
+\index{RepositorioRespostas@{RepositorioRespostas}!answer\_post@{answer\_post}}
+\index{answer\_post@{answer\_post}!RepositorioRespostas@{RepositorioRespostas}}
+\doxysubsubsection{\texorpdfstring{answer\_post()}{answer\_post()}}
+{\footnotesize\ttfamily void Repositorio\+Respostas\+::answer\+\_\+post (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{post\+\_\+id,  }\item[{std\+::string const \&}]{id\+\_\+monitor,  }\item[{std\+::string const \&}]{content,  }\item[{std\+::string const \&}]{answer\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da criação de uma resposta, a adicionando no banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+id,id\+\_\+monitor,content,answer\+\_\+id} & post\+\_\+id, id\+\_\+monitor, content, answer\+\_\+id. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioRespostas_ad0afaf5299591eb459e2ac3b2923fa21}\label{classRepositorioRespostas_ad0afaf5299591eb459e2ac3b2923fa21} 
+\index{RepositorioRespostas@{RepositorioRespostas}!answers\_by\_post\_id@{answers\_by\_post\_id}}
+\index{answers\_by\_post\_id@{answers\_by\_post\_id}!RepositorioRespostas@{RepositorioRespostas}}
+\doxysubsubsection{\texorpdfstring{answers\_by\_post\_id()}{answers\_by\_post\_id()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Repositorio\+Respostas\+::answers\+\_\+by\+\_\+post\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{post\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Retorna todas as respostas relacionadas a um determinado post. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em post\+\_\+id} & id do post. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em std\+::vector$<$std\+::string$>$} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioRespostas_ac67dbadfb41e9c7d455e69d36e6a336d}\label{classRepositorioRespostas_ac67dbadfb41e9c7d455e69d36e6a336d} 
+\index{RepositorioRespostas@{RepositorioRespostas}!delete\_answer@{delete\_answer}}
+\index{delete\_answer@{delete\_answer}!RepositorioRespostas@{RepositorioRespostas}}
+\doxysubsubsection{\texorpdfstring{delete\_answer()}{delete\_answer()}}
+{\footnotesize\ttfamily void Repositorio\+Respostas\+::delete\+\_\+answer (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{answer\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da remoção de uma resposta no banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em answer\+\_\+id} & id de uma resposta. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+repositorio\+\_\+respostas.\+hpp\end{DoxyCompactItemize}

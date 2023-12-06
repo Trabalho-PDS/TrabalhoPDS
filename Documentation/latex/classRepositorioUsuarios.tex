@@ -1,0 +1,136 @@
+\doxysection{Repositorio\+Usuarios Class Reference}
+\hypertarget{classRepositorioUsuarios}{}\label{classRepositorioUsuarios}\index{RepositorioUsuarios@{RepositorioUsuarios}}
+Inheritance diagram for Repositorio\+Usuarios\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRepositorioUsuarios}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRepositorioUsuarios_a8442cf6bf4debae9a968ce6f50749a4c}{criar\+\_\+usuario}} (const std\+::string email, const std\+::string senha, std\+::string const nome\+\_\+completo, const std\+::string tipo, std\+::string id\+\_\+usuario="{}default"{})
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da criação de um usuario no banco de dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRepositorioUsuarios_a5e466b73c82920eb56491df0c90710e0}{remover\+\_\+usuario}} (std\+::string id\+\_\+usuario)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da remoção de um usuario no banco de dados. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRepositorioUsuarios_ac1cb8335f4dfb9f5c0d38829a770eac9}{autenticar\+\_\+login}} (std\+::string email, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Realiza a busca dos dados no banco, e verifica a vericidade das informações, retornando true se os dados existirem. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRepositorioUsuarios_acb6b70762fa3a2cb892fbffe3976cf45}{identidade\+\_\+usuario}} (std\+::string email)
+\begin{DoxyCompactList}\small\item\em Busca um id relacionado a um determinado email no banco de dados, e o retorna. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRepositorioUsuarios_a7ac7c9b24545548495b6c2bc250ea57e}{dados\+\_\+usuario}} (const std\+::string id\+Usuario)
+\begin{DoxyCompactList}\small\item\em Busca os dados de um usuario no banco de dados e os retorna. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{repositorio__usuarios_8hpp_source_l00008}{8}} of file \mbox{\hyperlink{repositorio__usuarios_8hpp_source}{repositorio\+\_\+usuarios.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRepositorioUsuarios_ac1cb8335f4dfb9f5c0d38829a770eac9}\label{classRepositorioUsuarios_ac1cb8335f4dfb9f5c0d38829a770eac9} 
+\index{RepositorioUsuarios@{RepositorioUsuarios}!autenticar\_login@{autenticar\_login}}
+\index{autenticar\_login@{autenticar\_login}!RepositorioUsuarios@{RepositorioUsuarios}}
+\doxysubsubsection{\texorpdfstring{autenticar\_login()}{autenticar\_login()}}
+{\footnotesize\ttfamily bool Repositorio\+Usuarios\+::autenticar\+\_\+login (\begin{DoxyParamCaption}\item[{std\+::string}]{email,  }\item[{std\+::string}]{senha }\end{DoxyParamCaption})}
+
+
+
+Realiza a busca dos dados no banco, e verifica a vericidade das informações, retornando true se os dados existirem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email,senha} & email, senha. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioUsuarios_a8442cf6bf4debae9a968ce6f50749a4c}\label{classRepositorioUsuarios_a8442cf6bf4debae9a968ce6f50749a4c} 
+\index{RepositorioUsuarios@{RepositorioUsuarios}!criar\_usuario@{criar\_usuario}}
+\index{criar\_usuario@{criar\_usuario}!RepositorioUsuarios@{RepositorioUsuarios}}
+\doxysubsubsection{\texorpdfstring{criar\_usuario()}{criar\_usuario()}}
+{\footnotesize\ttfamily void Repositorio\+Usuarios\+::criar\+\_\+usuario (\begin{DoxyParamCaption}\item[{const std\+::string}]{email,  }\item[{const std\+::string}]{senha,  }\item[{std\+::string const}]{nome\+\_\+completo,  }\item[{const std\+::string}]{tipo,  }\item[{std\+::string}]{id\+\_\+usuario = {\ttfamily "{}default"{}} }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da criação de um usuario no banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email,senha,nome\+\_\+completo,tipo,id\+\_\+usuario} & email, senha, nome\+\_\+completo, tipo, id\+\_\+usuario. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioUsuarios_a7ac7c9b24545548495b6c2bc250ea57e}\label{classRepositorioUsuarios_a7ac7c9b24545548495b6c2bc250ea57e} 
+\index{RepositorioUsuarios@{RepositorioUsuarios}!dados\_usuario@{dados\_usuario}}
+\index{dados\_usuario@{dados\_usuario}!RepositorioUsuarios@{RepositorioUsuarios}}
+\doxysubsubsection{\texorpdfstring{dados\_usuario()}{dados\_usuario()}}
+{\footnotesize\ttfamily std\+::string Repositorio\+Usuarios\+::dados\+\_\+usuario (\begin{DoxyParamCaption}\item[{const std\+::string}]{id\+Usuario }\end{DoxyParamCaption})}
+
+
+
+Busca os dados de um usuario no banco de dados e os retorna. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Usuario} & id do usuario. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioUsuarios_acb6b70762fa3a2cb892fbffe3976cf45}\label{classRepositorioUsuarios_acb6b70762fa3a2cb892fbffe3976cf45} 
+\index{RepositorioUsuarios@{RepositorioUsuarios}!identidade\_usuario@{identidade\_usuario}}
+\index{identidade\_usuario@{identidade\_usuario}!RepositorioUsuarios@{RepositorioUsuarios}}
+\doxysubsubsection{\texorpdfstring{identidade\_usuario()}{identidade\_usuario()}}
+{\footnotesize\ttfamily std\+::string Repositorio\+Usuarios\+::identidade\+\_\+usuario (\begin{DoxyParamCaption}\item[{std\+::string}]{email }\end{DoxyParamCaption})}
+
+
+
+Busca um id relacionado a um determinado email no banco de dados, e o retorna. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & email. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em std\+::string} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classRepositorioUsuarios_a5e466b73c82920eb56491df0c90710e0}\label{classRepositorioUsuarios_a5e466b73c82920eb56491df0c90710e0} 
+\index{RepositorioUsuarios@{RepositorioUsuarios}!remover\_usuario@{remover\_usuario}}
+\index{remover\_usuario@{remover\_usuario}!RepositorioUsuarios@{RepositorioUsuarios}}
+\doxysubsubsection{\texorpdfstring{remover\_usuario()}{remover\_usuario()}}
+{\footnotesize\ttfamily void Repositorio\+Usuarios\+::remover\+\_\+usuario (\begin{DoxyParamCaption}\item[{std\+::string}]{id\+\_\+usuario }\end{DoxyParamCaption})}
+
+
+
+Realiza o processo concreto da remoção de um usuario no banco de dados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+usuario} & id do usuario. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+repositorio\+\_\+usuarios.\+hpp\end{DoxyCompactItemize}

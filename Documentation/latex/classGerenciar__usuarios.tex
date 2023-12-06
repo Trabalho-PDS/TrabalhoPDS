@@ -1,0 +1,171 @@
+\doxysection{Gerenciar\+\_\+usuarios Class Reference}
+\hypertarget{classGerenciar__usuarios}{}\label{classGerenciar__usuarios}\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+Inheritance diagram for Gerenciar\+\_\+usuarios\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGerenciar__usuarios}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classGerenciar__usuarios_a7fe27be62979296ae277479dbc46cc6d}{create\+\_\+user}} (const std\+::string email, const std\+::string senha, std\+::string const nome\+\_\+completo, const std\+::string tipo)
+\begin{DoxyCompactList}\small\item\em Cria um novo usuario, retorna verdadeiro se o usuario for criado com sucesso. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciar__usuarios_a67aa0021d8428f10030e6a183511d6a1}{remove\+\_\+user}} (std\+::string id\+\_\+usuario)
+\begin{DoxyCompactList}\small\item\em Remove um usuario. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGerenciar__usuarios_a0e044ec883964a646b6fe50d30b927ca}{authenticate\+\_\+user}} (std\+::string email, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Autentica um usuario, retorna verdadeiro se o mesmo existir. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGerenciar__usuarios_a92b626075a84a75ae12b60d8f3f160d3}{find\+\_\+user}} (std\+::string email)
+\begin{DoxyCompactList}\small\item\em Encontra um usuario especifico, cria o seu respectivo objeto, e retorna um ponteiro para o mesmo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciar__usuarios_a386556f46fbd53cca20902ce603cc979}{edit\+\_\+user}} (std\+::string id\+\_\+usuario, const std\+::string email, const std\+::string senha, std\+::string const nome\+\_\+completo, const std\+::string tipo)
+\begin{DoxyCompactList}\small\item\em Edita as informações de um usuario. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classGerenciar__usuarios_a19c5aea1abee27698f46e830f78189e2}{get\+\_\+posts}} (std\+::string id\+\_\+usuario)
+\begin{DoxyCompactList}\small\item\em Retorna um vetor com todos os posts já feitos por determinado usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classRepositorioUsuarios}{Repositorio\+Usuarios}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRepositorioUsuarios_a8442cf6bf4debae9a968ce6f50749a4c}{criar\+\_\+usuario}} (const std\+::string email, const std\+::string senha, std\+::string const nome\+\_\+completo, const std\+::string tipo, std\+::string id\+\_\+usuario="{}default"{})
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da criação de um usuario no banco de dados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRepositorioUsuarios_a5e466b73c82920eb56491df0c90710e0}{remover\+\_\+usuario}} (std\+::string id\+\_\+usuario)
+\begin{DoxyCompactList}\small\item\em Realiza o processo concreto da remoção de um usuario no banco de dados. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRepositorioUsuarios_ac1cb8335f4dfb9f5c0d38829a770eac9}{autenticar\+\_\+login}} (std\+::string email, std\+::string senha)
+\begin{DoxyCompactList}\small\item\em Realiza a busca dos dados no banco, e verifica a vericidade das informações, retornando true se os dados existirem. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRepositorioUsuarios_acb6b70762fa3a2cb892fbffe3976cf45}{identidade\+\_\+usuario}} (std\+::string email)
+\begin{DoxyCompactList}\small\item\em Busca um id relacionado a um determinado email no banco de dados, e o retorna. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRepositorioUsuarios_a7ac7c9b24545548495b6c2bc250ea57e}{dados\+\_\+usuario}} (const std\+::string id\+Usuario)
+\begin{DoxyCompactList}\small\item\em Busca os dados de um usuario no banco de dados e os retorna. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gerenciar__usuarios_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{gerenciar__usuarios_8hpp_source}{gerenciar\+\_\+usuarios.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGerenciar__usuarios_a0e044ec883964a646b6fe50d30b927ca}\label{classGerenciar__usuarios_a0e044ec883964a646b6fe50d30b927ca} 
+\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}!authenticate\_user@{authenticate\_user}}
+\index{authenticate\_user@{authenticate\_user}!Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+\doxysubsubsection{\texorpdfstring{authenticate\_user()}{authenticate\_user()}}
+{\footnotesize\ttfamily bool Gerenciar\+\_\+usuarios\+::authenticate\+\_\+user (\begin{DoxyParamCaption}\item[{std\+::string}]{email,  }\item[{std\+::string}]{senha }\end{DoxyParamCaption})}
+
+
+
+Autentica um usuario, retorna verdadeiro se o mesmo existir. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email,senha} & email, senha. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classGerenciar__usuarios_a7fe27be62979296ae277479dbc46cc6d}\label{classGerenciar__usuarios_a7fe27be62979296ae277479dbc46cc6d} 
+\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}!create\_user@{create\_user}}
+\index{create\_user@{create\_user}!Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+\doxysubsubsection{\texorpdfstring{create\_user()}{create\_user()}}
+{\footnotesize\ttfamily bool Gerenciar\+\_\+usuarios\+::create\+\_\+user (\begin{DoxyParamCaption}\item[{const std\+::string}]{email,  }\item[{const std\+::string}]{senha,  }\item[{std\+::string const}]{nome\+\_\+completo,  }\item[{const std\+::string}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Cria um novo usuario, retorna verdadeiro se o usuario for criado com sucesso. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email,senha,nome\+\_\+completo,tipo} & email, senha, nome completo, tipo. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em bool} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classGerenciar__usuarios_a386556f46fbd53cca20902ce603cc979}\label{classGerenciar__usuarios_a386556f46fbd53cca20902ce603cc979} 
+\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}!edit\_user@{edit\_user}}
+\index{edit\_user@{edit\_user}!Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+\doxysubsubsection{\texorpdfstring{edit\_user()}{edit\_user()}}
+{\footnotesize\ttfamily void Gerenciar\+\_\+usuarios\+::edit\+\_\+user (\begin{DoxyParamCaption}\item[{std\+::string}]{id\+\_\+usuario,  }\item[{const std\+::string}]{email,  }\item[{const std\+::string}]{senha,  }\item[{std\+::string const}]{nome\+\_\+completo,  }\item[{const std\+::string}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Edita as informações de um usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+usuario,email,senha,nome\+\_\+completo,tipo} & id\+\_\+usuario, email, senha, nome\+\_\+completo. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classGerenciar__usuarios_a92b626075a84a75ae12b60d8f3f160d3}\label{classGerenciar__usuarios_a92b626075a84a75ae12b60d8f3f160d3} 
+\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}!find\_user@{find\_user}}
+\index{find\_user@{find\_user}!Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+\doxysubsubsection{\texorpdfstring{find\_user()}{find\_user()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUser}{User}} \texorpdfstring{$\ast$}{*} Gerenciar\+\_\+usuarios\+::find\+\_\+user (\begin{DoxyParamCaption}\item[{std\+::string}]{email }\end{DoxyParamCaption})}
+
+
+
+Encontra um usuario especifico, cria o seu respectivo objeto, e retorna um ponteiro para o mesmo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & email. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em User\texorpdfstring{$\ast$}{*}} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classGerenciar__usuarios_a19c5aea1abee27698f46e830f78189e2}\label{classGerenciar__usuarios_a19c5aea1abee27698f46e830f78189e2} 
+\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}!get\_posts@{get\_posts}}
+\index{get\_posts@{get\_posts}!Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+\doxysubsubsection{\texorpdfstring{get\_posts()}{get\_posts()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Gerenciar\+\_\+usuarios\+::get\+\_\+posts (\begin{DoxyParamCaption}\item[{std\+::string}]{id\+\_\+usuario }\end{DoxyParamCaption})}
+
+
+
+Retorna um vetor com todos os posts já feitos por determinado usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+usuario} & id do usuario. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em std\+::vector$<$std\+::string$>$} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classGerenciar__usuarios_a67aa0021d8428f10030e6a183511d6a1}\label{classGerenciar__usuarios_a67aa0021d8428f10030e6a183511d6a1} 
+\index{Gerenciar\_usuarios@{Gerenciar\_usuarios}!remove\_user@{remove\_user}}
+\index{remove\_user@{remove\_user}!Gerenciar\_usuarios@{Gerenciar\_usuarios}}
+\doxysubsubsection{\texorpdfstring{remove\_user()}{remove\_user()}}
+{\footnotesize\ttfamily void Gerenciar\+\_\+usuarios\+::remove\+\_\+user (\begin{DoxyParamCaption}\item[{std\+::string}]{id\+\_\+usuario }\end{DoxyParamCaption})}
+
+
+
+Remove um usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+usuario} & id de um usuario. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gerenciar\+\_\+usuarios.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,24 @@
+\doxysection{repositorio\+\_\+usuarios.\+hpp}
+\hypertarget{repositorio__usuarios_8hpp_source}{}\label{repositorio__usuarios_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00008}\mbox{\hyperlink{classRepositorioUsuarios}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRepositorioUsuarios}{RepositorioUsuarios}}\ \{}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00009}00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00015}\mbox{\hyperlink{classRepositorioUsuarios_a8442cf6bf4debae9a968ce6f50749a4c}{00015}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRepositorioUsuarios_a8442cf6bf4debae9a968ce6f50749a4c}{criar\_usuario}}(\textcolor{keyword}{const}\ std::string\ email,\ \textcolor{keyword}{const}\ std::string\ senha,\ \ std::string\ \textcolor{keyword}{const}\ nome\_completo,\ \textcolor{keyword}{const}\ std::string\ tipo,\ std::string\ id\_usuario\ =\ \textcolor{stringliteral}{"{}default"{}});}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00021}\mbox{\hyperlink{classRepositorioUsuarios_a5e466b73c82920eb56491df0c90710e0}{00021}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRepositorioUsuarios_a5e466b73c82920eb56491df0c90710e0}{remover\_usuario}}(std::string\ id\_usuario);}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00027}\mbox{\hyperlink{classRepositorioUsuarios_ac1cb8335f4dfb9f5c0d38829a770eac9}{00027}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classRepositorioUsuarios_ac1cb8335f4dfb9f5c0d38829a770eac9}{autenticar\_login}}(std::string\ email,\ std::string\ senha);}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00033}\mbox{\hyperlink{classRepositorioUsuarios_acb6b70762fa3a2cb892fbffe3976cf45}{00033}}\ \ \ std::string\ \mbox{\hyperlink{classRepositorioUsuarios_acb6b70762fa3a2cb892fbffe3976cf45}{identidade\_usuario}}(std::string\ email);}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00039}\mbox{\hyperlink{classRepositorioUsuarios_a7ac7c9b24545548495b6c2bc250ea57e}{00039}}\ \ \ std::string\ \mbox{\hyperlink{classRepositorioUsuarios_a7ac7c9b24545548495b6c2bc250ea57e}{dados\_usuario}}(\textcolor{keyword}{const}\ std::string\ idUsuario);}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00040}00040\ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00041}00041\ \ \ \textcolor{comment}{//std::string\ \_currentPath\ =\ std::filesystem::current\_path().string();}}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00042}00042\ \ \ std::string\ \_authkeysPath\ =\ \textcolor{stringliteral}{"{}../storage/authkeys.txt"{}};}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00043}00043\ \ \ std::string\ \_filePath\ =\ \textcolor{stringliteral}{"{}../storage/usuario.txt"{}};}
+\DoxyCodeLine{\Hypertarget{repositorio__usuarios_8hpp_source_l00044}00044\ \};}
+
+\end{DoxyCode}

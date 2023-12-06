@@ -1,0 +1,94 @@
+\doxysection{Monitor Class Reference}
+\hypertarget{classMonitor}{}\label{classMonitor}\index{Monitor@{Monitor}}
+Inheritance diagram for Monitor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMonitor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMonitor_a5bd11b8c97702eb365bb0fbcd628ac37}{Monitor}} (std\+::string id\+\_\+user, std\+::string email, std\+::string name, std\+::string type)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classMonitor}{Monitor}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classMonitor_a33193cbd723673192de5b139c63f8516}{Type}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o tipo do usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classUser}{User}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser_a4a0137053e591fbb79d9057dd7d2283d}{User}} ()
+\begin{DoxyCompactList}\small\item\em Construtor genérico da classe \doxylink{classUser}{User}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser_a842c57529259b9c7b7329d86b3964859}{User}} (std\+::string id\+\_\+user, std\+::string email, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{classUser}{User}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classUser_ad30658423b970767e3f0c677938a5b3a}{Email}} () const
+\begin{DoxyCompactList}\small\item\em Metodo get do campo privado \+\_\+email. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classUser_a5d11a7ccc3d803a89344f0a3fc032077}{Name}} () const
+\begin{DoxyCompactList}\small\item\em Metodo get do campo privado \+\_\+name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classUser_a1bac834fd4e6c724b101ed2e95ae2ef1}{Id}} () const
+\begin{DoxyCompactList}\small\item\em Metodo get do campo privado \+\_\+id\+\_\+user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGerenciarPosts}{Gerenciar\+Posts}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGerenciarPosts_afb54ee18baf804dc66389934786a254c}{new\+\_\+post}} (const \mbox{\hyperlink{classPost}{Post}} \&new\+\_\+post)
+\begin{DoxyCompactList}\small\item\em Criar um novo post. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciarPosts_a782813d9f6e619d2f8739d5a4c04b36d}{delete\+\_\+post}} (std\+::string const id\+\_\+post)
+\begin{DoxyCompactList}\small\item\em Deletar um post. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGerenciarPosts_aa09f27123863a8852193f17dc8fb2849}{edit\+\_\+post}} (const \mbox{\hyperlink{classPost}{Post}} \&edited\+\_\+post)
+\begin{DoxyCompactList}\small\item\em Editar um post. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{user__monitor_8hpp_source_l00009}{9}} of file \mbox{\hyperlink{user__monitor_8hpp_source}{user\+\_\+monitor.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMonitor_a5bd11b8c97702eb365bb0fbcd628ac37}\label{classMonitor_a5bd11b8c97702eb365bb0fbcd628ac37} 
+\index{Monitor@{Monitor}!Monitor@{Monitor}}
+\index{Monitor@{Monitor}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{Monitor()}{Monitor()}}
+{\footnotesize\ttfamily Monitor\+::\+Monitor (\begin{DoxyParamCaption}\item[{std\+::string}]{id\+\_\+user,  }\item[{std\+::string}]{email,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classMonitor}{Monitor}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email,name,type} & email, name, type. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMonitor_a33193cbd723673192de5b139c63f8516}\label{classMonitor_a33193cbd723673192de5b139c63f8516} 
+\index{Monitor@{Monitor}!Type@{Type}}
+\index{Type@{Type}!Monitor@{Monitor}}
+\doxysubsubsection{\texorpdfstring{Type()}{Type()}}
+{\footnotesize\ttfamily std\+::string Monitor\+::\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retorna o tipo do usuario. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em std\+::string} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Implements \mbox{\hyperlink{classUser_aed1d353f85aecac76faea728c0d58615}{User}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+user\+\_\+monitor.\+hpp\end{DoxyCompactItemize}
